@@ -5,12 +5,9 @@
 		<title>BILL BENSON</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="{{ url_for('static', filename='/assets/css/main.css') }}" />
-		<link rel="shortcut icon" href="{{ url_for('static', filename='/images/favicon.ico') }}" />
-
-
-		<noscript><link rel="stylesheet" href="{{ url_for('static', filename='/static/assets/css/noscript.css') }}" /></noscript>
-
+		<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/main.css') }}" />
+		<link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}" />
+		<noscript><link rel="stylesheet" href="{{ url_for('static', filename='assets/css/noscript.css') }}" /></noscript>
 	</head>
 	<body class="is-preload">
 
@@ -24,8 +21,8 @@
 						</div>
 						<div class="content">
 							<div class="inner">
-								<h1>HI, I'm Bill Benson</h1>
-								<p>An ethical hacker and i love programming. If you want some proof, please take a look at my projects!</p>
+								<h1>Hi, I'm Bill Benson</h1>
+								<p>IT and network security professional. MSc Cybersecurity graduate, Wrexham University. CompTIA Security+ certified.</p>
 							</div>
 						</div>
 						<nav>
@@ -35,7 +32,6 @@
 								<li><a href="#about">About</a></li>
 								<li><a href="#experience">Experience</a></li>
 								<li><a href="#contact">Contact</a></li>
-								<!--<li><a href="#elements">Elements</a></li>-->
 							</ul>
 						</nav>
 					</header>
@@ -46,150 +42,138 @@
 						<!-- Intro -->
 							<article id="intro">
 								<h2 class="major">Intro</h2>
-								<span class="image main"><img src="/static/images/intro2.jpg" alt="" /></span>
-								<p>HI, i'm Bill Benson. My background is primarily in computer science with a focus on ethical hacking and Python programming. I am also familiar with the blue team side of security from my Google cybersecurity professional certificate. I have written a couple of hacking tools while developing my penetration testing skills. They include but are not limited to a vulnerability scanner, malware like backdoors and keyloggers, spoofing tools, and more on my GitHub..
-								<p>I have also delved into web security and bug bounty hunting and I have recently completed a significant number of portswigger labs while getting more proficient with burpsuite</p>
-								<p>My passion lies in making the internet a safer place. With a focus on cybersecurity, ethical hacking, and programming, I am developing my skills to contribute significantly to digital security. My goal is to offer cybersecurity services worldwide, ensuring a secure online environment. I am not bothered about salary expectations right now, mainly interested in professional experience.</p>
+								<span class="image main"><img src="{{ url_for('static', filename='images/intro2.jpg') }}" alt="" /></span>
+								<p>I'm Bill Benson, an IT and network security professional based in Wrexham, UK. My background spans firewall engineering, IT support, and security tooling development in Python. I have hands-on experience configuring Sophos and Fortinet environments across 15+ client networks and delivering first and second-line IT support.</p>
+								<p>I recently completed an MSc in Cybersecurity at Wrexham University, with my dissertation focused on evaluating ModSecurity WAF rulesets against web application attacks. I hold CompTIA Security+ and ISC2 Certified in Cybersecurity credentials, and I have been building on my experience through coursework in machine learning for security applications and web application testing via PortSwigger Web Security Academy.</p>
+								<p>I'm currently open to IT support, network, and junior security roles across the UK, on-site, hybrid, or remote.</p>
 							</article>
 
 						<!-- Work -->
 							<article id="work">
 								<h2 class="major">Projects</h2>
-								<span class="image main"><img src="/static/images/work.avif" alt="" /></span>
-								<p>These are projects that i have worked on in the past few months to develop my skills. The source code to these projects can be found on my <a href="https://github.com/Bill-Benson" target="_blank">Github.</a> Platforms and technologies include: Python, Linux, Metasploitable, Beef-XSS, VirtualBox, scapy, windows 11, flask...</p>
-								 <!-- Project 1: Vulnerability Scanner -->
-							    <section>
-							        <h3>Vulnerability Scanner</h3>
-							        <p>Implemented a Python-based vulnerability scanner to discover XSS vulnerabilities on websites
-The scanner lists all the links and forms on the website and tests each of them for XSS injections. 
-<p>Project result: The scanner was able to discover XSS vulnerabilities on the websites hosted on metasploitable web server. This project was conducted in a virtual environment.</p> <a href="https://github.com/Bill-Benson/web-application-hacking/blob/main/scanner.py" target="_blank">See More</a></p>
-							    </section>
+								<span class="image main"><img src="{{ url_for('static', filename='images/work.avif') }}" alt="" /></span>
+								<p>A selection of projects developed through MSc coursework and independent study. Source code available on my <a href="https://github.com/Bill-Benson" target="_blank">GitHub.</a></p>
 
-							    <!-- Project 2: Backdoor (Malware) -->
-							    <section>
-							        <h3>Backdoor (Malware)</h3>
-							        <p>Built a backdoor using sockets in python for remote access to target host. (Ethical Hacking). <p>Project result: I was able to execute system commands on a remote target after packaging the script into an executable.</p><a href="https://github.com/Bill-Benson/Backdoor-Malware-" target="_blank">See More</a></p>
-							    </section>
+								<section>
+									<h3>WAF Paranoia Level Evaluation (MSc Dissertation)</h3>
+									<p>Empirical comparison of ModSecurity CRS 3.3.8 at Paranoia Level 1 vs PL2 against structured SQLi and XSS payloads in a Docker-based testbed. Key finding: raising the paranoia level produced zero improvement in detection rate (TPR held at 97.0%) while doubling the false positive rate from 1.0% to 2.0%. All differences were attributable to threshold arithmetic, not additional rule logic. <a href="https://github.com/Bill-Benson/Modsecurity-crs-paranoia-evaluation" target="_blank">See More</a></p>
+								</section>
 
-							    <!-- Project 3: Keylogger (Malware) -->
-							    <section>
-							        <h3>Keylogger (Malware)</h3>
-							        <p>Created keylogger using Simple Mail Transfer Protocol(SMTP) to report keystrokes. (Ethical Hacking).<p>Project result: The keylogger logs every key strike and sends the logs to my mail after a specific time interval.</p> <a href="https://github.com/Bill-Benson/Malwares/blob/main/keylogger.py" target="_blank">See More</a></p>
-							    </section>
+								<section>
+									<h3>Malware Detection with Machine Learning</h3>
+									<p>Compared Linear SVM, LightGBM, and a PyTorch MLP for static PE malware classification on the EMBER 2018 dataset. LightGBM achieved an F1 score of 0.9474 and ROC AUC of 0.9892. Includes robustness testing across two stratified subsets to verify ranking stability. <a href="https://github.com/Bill-Benson/malware-detection-ml" target="_blank">See More</a></p>
+								</section>
 
-							    <!-- Project 4: Networking Hacking Tools -->
-							    <section>
-							        <h3>Networking Hacking Tools</h3>
-							        <p>Python scripts for network hacking/spoofing while developing my programming skills. They include a network scanner, Mac address changer, arp spoofer, packet sniffer, DNS spoofer, and Code Injector. <a href="https://github.com/Bill-Benson/Network-Hacking-Tools" target="_blank">See More</a></p>
-							    </section>
+								<section>
+									<h3>Heart Disease Classifier</h3>
+									<p>Binary heart disease prediction using logistic regression, random forest, and XGBoost on the UCI Heart Disease dataset. Evaluated via stratified 5-fold cross-validation with calibration curves, ROC analysis, and McNemar's statistical testing. Built in Python using scikit-learn. <a href="https://github.com/Bill-Benson/heart-disease-ml-classifier" target="_blank">See More</a></p>
+								</section>
 
-							    <!-- Project 5: Password Checker -->
-							    <section>
-							        <h3>PASSWORD PWN</h3>
-							        <p>Developed a Python script to check if a password has ever been in a data breach, communicating with the API of "pwnedpasswords.com". <p>Project result: I was able to confirm that none of my passwords have ever been in a data breach.</p><a href="https://github.com/Bill-Benson/Pwned-Password-" target="_blank">See More</a></p>
-							    </section>
+								<section>
+									<h3>Web Application Security Scanner</h3>
+									<p>Python-based scanner that enumerates links and forms on target web applications and tests for reflected XSS vulnerabilities. Built and tested in an isolated lab environment using Metasploitable. <a href="https://github.com/Bill-Benson/web-app-security-scanner" target="_blank">See More</a></p>
+								</section>
 
-							    <!-- Project 6: Web Scraping -->
-							    <section>
-							        <h3>Data Scraping</h3>
-							        <p>Crafted a Python program for web scraping, extracting important news with over 100 votes from HackerNews.<p>Project result: The script is hosted on my "pythonanywhere" account and sends the latest and highest-rated "hackernews" news to my mail every day</p> <a href="https://github.com/Bill-Benson/scrape" target="_blank">See More</a></p>
-							    </section>
+								<section>
+									<h3>Password Breach Checker</h3>
+									<p>Queries the Have I Been Pwned Pwned Passwords API using k-Anonymity to check whether a password has appeared in a known data breach. No plaintext passwords are transmitted at any point. <a href="https://github.com/Bill-Benson/pwned-password-checker" target="_blank">See More</a></p>
+								</section>
 
-							    <!-- Project 7: Portfolio Website -->
-							    <section>
-							        <h3>This Portfolio Website</h3>
-							        <p>I customized an HTML5 template, while utilizing Python and Flask for the backend of this portfolio website. <a href="https://github.com/Bill-Benson/Portfolio" target="_blank">See More</a></p>
-							    </section>
+								<section>
+									<h3>Hacker News Scraper</h3>
+									<p>Python web scraper that extracts top-voted stories from Hacker News and delivers a daily digest by email. Filters by vote threshold and outputs clean, ranked results. <a href="https://github.com/Bill-Benson/scrape" target="_blank">See More</a></p>
+								</section>
+
+								<section>
+									<h3>This Portfolio Website</h3>
+									<p>Customised HTML5 template with a Python and Flask backend, deployed on Render. <a href="https://github.com/Bill-Benson/Portfolio" target="_blank">See More</a></p>
+								</section>
 							</article>
 
 						<!-- About -->
 							<article id="about">
 								<h2 class="major">About</h2>
-								<span class="image main"><img src="/static/images/about2.avif" alt="" /></span>
+								<span class="image main"><img src="{{ url_for('static', filename='images/about2.avif') }}" alt="" /></span>
+
 								<section>
-								<h3>🛡️ Guardian of the Virtual Realm</h3>
-								<p>I have a Bachelor's degree in Computer Science from the univerity of Ibadan, Nigeria. With a keen eye for security, I embark on ethical hacking adventures to identify and fortify vulnerabilities.</p>
+									<h3>Background</h3>
+									<p>I hold a Bachelor's degree in Computer Science from the University of Ibadan, Nigeria, and an MSc in Cybersecurity from Wrexham University. My professional experience includes network security engineering in Lagos and IT support as part of the Nigerian National Youth Service Corps programme.</p>
 								</section>
 
-									<section>
-						        <h3>🚀 Continuous Learning, Ever-evolving</h3>
-						        <p>In this fast-paced digital era, I embrace the ethos of continuous learning. Explore my journey of growth and evolution through the ever-expanding realms of technology. I have the <a href="https://coursera.org/verify/professional-cert/2XFY2LSHQFYY" target="_blank">Google Cybersecurity Professional Certificate<a> and I am currently studying for the <a href="https://www.isc2.org/certifications/cc" target="_blank"> ISC2 CC (certified in cybersecurity)</a></p>
-						    	</section>
-						    	
-						    	<section>
-						        <h3>📚 Licenses & certifications</h3>
-<a href="https://www.coursera.org/account/accomplishments/professional-cert/2XFY2LSHQFYY?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=sharing_cta&utm_product=prof" target="_blank">Google Cyber security professional certificate</a><br>
-<a href="https://www.udemy.com/certificate/UC-2292ba91-f123-4715-bca2-0e46e7a20222/?utm_campaign=email&utm_medium=email&utm_source=sendgrid.com" target="_blank">zSecurity: Website Hacking / Penetration Testing</a><br>
-<a href="https://www.udemy.com/certificate/UC-09bce992-47b3-4ac8-ac7a-7925b9dcc404/?utm_campaign=email&utm_medium=email&utm_source=sendgrid.com" target="_blank">zSecurity: Ethical Hacking Using The Cloud</a><br><br>
-
-						    	</section>
+								<section>
+									<h3>Currently</h3>
+									<p>MSc completed April 2026. Available immediately for IT support, network, and junior security roles across the UK. Open to remote and hybrid positions.</p>
+								</section>
 
 								<section>
-						        <h3>💻 Skills & Technologies</h3>
-						        <p>Network Security, Python Programming, Security Information and Event Management (SIEM) tools, SQL, Linux, Intrusion Detection Systems (IDS), Burpsuite, Vulnerbility Management, Priviledge escalation, etc. </p>
-						    	</section>
+									<h3>Licenses &amp; Certifications</h3>
+									<a href="https://www.credly.com/badges/accff0a2-b645-4686-906d-ab0728972bd5/" target="_blank">CompTIA Security+ CE</a><br>
+									<a href="https://www.coursera.org/account/accomplishments/professional-cert/2XFY2LSHQFYY" target="_blank">Google Cybersecurity Professional Certificate</a><br>
+									<a href="https://www.udemy.com/certificate/UC-09bce992-47b3-4ac8-ac7a-7925b9dcc404/" target="_blank">zSecurity: Ethical Hacking Using The Cloud</a><br>
+									<p>ISC2 Certified in Cybersecurity (CC)</p>
+								</section>
 
-						    	<section>
-						        <h3>🎨 Interests and Hobbies</h3>
-						        <p>Gaming, basketball, and chess.</p>
-						    	</section>
+								<section>
+									<h3>Skills</h3>
+									<p>Firewall Engineering (Sophos, Fortinet) | IT Support (1st &amp; 2nd Line) | Active Directory | Network Security | Web Application Testing | Python Scripting | Windows &amp; Linux | Penetration Testing Fundamentals | Endpoint Security | System Patching</p>
+								</section>
+
+								<section>
+									<h3>Interests</h3>
+									<p>Gaming, basketball, and chess.</p>
+								</section>
 							</article>
-							
-							
-						    	<!-- Experience -->
+
+						<!-- Experience -->
 							<article id="experience">
 								<h2 class="major">Experience</h2>
-								<span class="image main"><img src="/static/images/premium_photo-1701179596614-9c64f50cda76.avif" alt="" /></span>
+								<span class="image main"><img src="{{ url_for('static', filename='images/premium_photo-1701179596614-9c64f50cda76.avif') }}" alt="" /></span>
 
 								<section>
-								<h3>Penetration Testing</h3>
-								<p style="float: right;">Sep 2023 - Current </p>
-								<b>Home Labs</b><br>
-								The home labs include all the projects in my project section.<br>
-								• Utilized various tools such as Metasploit, Nessus, Burp Suite, and Nmap to perform security testing.<br>
-								• Developed custom scripts and tools to automate penetration testing processes.<br>
-								• Stayed up-to-date with latest trends in cybersecurity threats, technologies, and methodologies. <br>
-								• Utilized password-cracking tools like John Ripper or Hashcat to evaluate password strength policies.<br><br><br>
+									<h3>Network Security Engineer</h3>
+									<p class="float-right">Jul 2024 - Jan 2025</p>
+									<b>Casper Technologies Ltd | Lagos, Nigeria</b><br>
+									&bull; Configured and maintained Sophos and Fortinet firewall environments across 15+ client networks, including policy rules, NAT, and web filtering<br>
+									&bull; Resolved misconfigurations through rule-based review and troubleshooting to reduce exposure<br>
+									&bull; Supported IPsec VPN deployments and delivered cyber security awareness training for 200+ staff, contributing to a 40% reduction in phishing susceptibility<br><br>
 								</section>
 
 								<section>
-								<h3>Information Technology Support Engineer</h3>
-								<p style="float: right;">Aug 2022 - Jul 2023 </p>
-								<b>Horty Benade Limited | Lagos, Nigeria.</b><br>
-								This is where I worked as a requirement for the completion of my National Youth Service Corps program.<br>
-								• Guided users with troubleshooting using diagnostic tools.<br>
-								• Guided users through step-by-step solutions following pre-determined scripts and technical troubleshooting procedures.<br>
-								• Identified and resolved issues using software and hardware. <br><br><br>
+									<h3>Penetration Testing (Self-directed)</h3>
+									<p class="float-right">Sep 2023 - Jun 2024</p>
+									<b>Home Labs</b><br>
+									&bull; Completed PortSwigger Web Security Academy labs covering SQL injection, XSS, and authentication vulnerabilities<br>
+									&bull; Built isolated test environments to practise reconnaissance, exploitation, and remediation validation<br>
+									&bull; Developed Python tooling for vulnerability scanning and password breach checking<br><br>
 								</section>
 
-									<section>
-								<h3>Student Intern</h3>
-								<p style="float: right;">Nov 2019 - Nov 2020 </p>
-								<b>AS Technologies| Ibadan, Nigeria.</b><br>
-								Student internship required for the completion of my Bachelor of science, computer science degree<br>
-								• Worked closely with senior engineers on large-scale deployments of complex networks.<br>
-								• Participated in training sessions to expand technical skills and knowledge.  <br>
-								• Monitored network traffic patterns to identify potential security threats or inefficiencies
+								<section>
+									<h3>IT Support Engineer</h3>
+									<p class="float-right">Aug 2022 - Jul 2023</p>
+									<b>Horty Benade Company | Lagos, Nigeria</b><br>
+									&bull; Provided first and second-line support across Windows environments, troubleshooting hardware, network connectivity, and Active Directory user issues<br>
+									&bull; Resolved endpoint security alerts and supported system patching processes<br>
+									&bull; Documented recurring issues and created resolution guides to improve team response times<br><br>
 								</section>
-						    	
 							</article>
 
 						<!-- Contact -->
 							<article id="contact">
 								<h2 class="major">Contact</h2>
 								<form method="post" action="/submit_form">
+									<input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
 									<div class="fields">
 										<div class="field half">
 											<label for="name">Name</label>
-											<input type="text" name="name" id="name" />
+											<input type="text" name="name" id="name" required />
 										</div>
 										<div class="field half">
 											<label for="email">Email</label>
-											<input type="text" name="email" id="email" />
+											<input type="email" name="email" id="email" required />
 										</div>
 										<div class="field">
 											<label for="message">Message</label>
-											<textarea name="message" id="message" rows="4"></textarea>
+											<textarea name="message" id="message" rows="4" required></textarea>
 										</div>
 									</div>
 									<ul class="actions">
@@ -199,34 +183,34 @@ The scanner lists all the links and forms on the website and tests each of them 
 								</form>
 								<ul class="icons">
 									<li><a href="https://www.linkedin.com/in/bill-benson-1930a923a" target="_blank" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
-									<li><a href="https://drive.google.com/file/d/1GnMHGwJx0Gw_BZ_Hqf7PQ3WAAnLKGCl3/view?usp=sharing" target="_blank" class="icon solid fa-file"><span class="label">Resume</span></a></li>
-									<li><a href="mailto:billbenson886@gmail.com?subject=Portfolio%20Inquiry&body=Hello%20Bill," target="_blank" class="icon solid fa-envelope" target="_blank"><span class="label">Email</span></a></li>
+									<li><a href="https://drive.google.com/file/d/1_DOcw9Q_YQD8tffL8UmFQT8FJE7er-FC/view?usp=drive_link" target="_blank" class="icon solid fa-file"><span class="label">Resume</span></a></li>
+									<li><a href="mailto:billbenson886@gmail.com?subject=Portfolio%20Inquiry&body=Hello%20Bill," class="icon solid fa-envelope"><span class="label">Email</span></a></li>
 									<li><a href="https://github.com/Bill-Benson" target="_blank" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
 								</ul>
+							</article>
 					</div>
 
 				<!-- Footer -->
 					<footer id="footer">
 						<ul class="icons">
 							<li><a href="https://www.linkedin.com/in/bill-benson-1930a923a" target="_blank" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
-							<li><a href="mailto:billbenson886@gmail.com?subject=Portfolio%20Inquiry&body=Hello%20Bill," class="icon solid fa-envelope" target="_blank"><span class="label">Email</span></a></li>
-							<li><a href="https://drive.google.com/file/d/1GnMHGwJx0Gw_BZ_Hqf7PQ3WAAnLKGCl3/view?usp=sharing" target="_blank" class="icon solid fa-file"><span class="label">Resume</span></a></li>
+							<li><a href="mailto:billbenson886@gmail.com?subject=Portfolio%20Inquiry&body=Hello%20Bill," class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+							<li><a href="https://drive.google.com/file/d/1_DOcw9Q_YQD8tffL8UmFQT8FJE7er-FC/view?usp=drive_link" target="_blank" class="icon solid fa-file"><span class="label">Resume</span></a></li>
 							<li><a href="https://github.com/Bill-Benson" target="_blank" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-						</ul>					
+						</ul>
 					</footer>
 
 			</div>
 
 		<!-- BG -->
-			<div id=bg></div>
+			<div id="bg"></div>
 
 		<!-- Scripts -->
-			<script src="/static/assets/js/jquery.min.js"></script>
-			<script src="/static/assets/js/browser.min.js"></script>
-			<script src="/static/assets/js/breakpoints.min.js"></script>
-			<script src="/static/assets/js/util.js"></script>
-			<script src="/static/assets/js/main.js"></script>
-
+			<script src="{{ url_for('static', filename='assets/js/jquery.min.js') }}"></script>
+			<script src="{{ url_for('static', filename='assets/js/browser.min.js') }}"></script>
+			<script src="{{ url_for('static', filename='assets/js/breakpoints.min.js') }}"></script>
+			<script src="{{ url_for('static', filename='assets/js/util.js') }}"></script>
+			<script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
 
 	</body>
 </html>

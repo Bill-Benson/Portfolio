@@ -1659,3 +1659,11 @@ input, select, textarea {
 		body.is-preload #footer {
 			opacity: 0;
 		}
+
+	.float-right {
+		float: right;
+	}
+
+	#work section {
+		margin-bottom: 2em;
+	}
