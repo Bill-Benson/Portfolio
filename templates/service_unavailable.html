@@ -4,9 +4,8 @@
 		<title>BILL BENSON</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="{{ url_for('static', filename='/assets/css/main.css') }}" />
-		<noscript><link rel="stylesheet" href="{{ url_for('static', filename='/static/assets/css/noscript.css') }}" /></noscript>
-
+		<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/main.css') }}" />
+		<noscript><link rel="stylesheet" href="{{ url_for('static', filename='assets/css/noscript.css') }}" /></noscript>
 	</head>
 	<body class="is-preload">
 
@@ -20,19 +19,16 @@
 						</div>
 						<div class="content">
 							<div class="inner">
-								<h1>Service not available, please click the email icon to send mail manually or try again later.</h1>
+								<h1>Something went wrong. Please check your details and try again, or use the email icon to contact me directly.</h1>
 							</div>
 						</div>
 					</header>
-
-				<!-- Main -->
-					
 
 				<!-- Footer -->
 					<footer id="footer">
 						<ul class="icons">
 							<li><a href="https://www.linkedin.com/in/bill-benson-1930a923a" target="_blank" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
-							<li><a href="mailto:billbenson886@gmail.com?subject=Portfolio%20Inquiry&body=Hello%20Bill," class="icon solid fa-envelope" target="_blank"><span class="label">Email</span></a></li>
+							<li><a href="mailto:billbenson886@gmail.com?subject=Portfolio%20Inquiry&body=Hello%20Bill," class="icon solid fa-envelope"><span class="label">Email</span></a></li>
 							<li><a href="https://drive.google.com/file/d/1GnMHGwJx0Gw_BZ_Hqf7PQ3WAAnLKGCl3/view?usp=sharing" target="_blank" class="icon solid fa-file"><span class="label">Resume</span></a></li>
 							<li><a href="https://github.com/Bill-Benson" target="_blank" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
 						</ul>
@@ -41,15 +37,14 @@
 			</div>
 
 		<!-- BG -->
-			<div id=bg></div>
+			<div id="bg"></div>
 
 		<!-- Scripts -->
-			<script src="/static/assets/js/jquery.min.js"></script>
-			<script src="/static/assets/js/browser.min.js"></script>
-			<script src="/static/assets/js/breakpoints.min.js"></script>
-			<script src="/static/assets/js/util.js"></script>
-			<script src="/static/assets/js/main.js"></script>
-
+			<script src="{{ url_for('static', filename='assets/js/jquery.min.js') }}"></script>
+			<script src="{{ url_for('static', filename='assets/js/browser.min.js') }}"></script>
+			<script src="{{ url_for('static', filename='assets/js/breakpoints.min.js') }}"></script>
+			<script src="{{ url_for('static', filename='assets/js/util.js') }}"></script>
+			<script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
 
 	</body>
 </html>
