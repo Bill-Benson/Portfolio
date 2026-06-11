@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Blog - Bill Benson</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/main.css') }}" />
+		<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/blog.css') }}" />
+		<link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}" />
+	</head>
+	<body class="is-preload blog-page">
+
+		<div id="blog-wrapper">
+			<div id="blog-container">
+				<header class="blog-header">
+					<a href="/" class="back-link">&larr; Back to Portfolio</a>
+					<h1>Blog</h1>
+					<p>Writeups, research, and notes on security topics.</p>
+				</header>
+
+				<main>
+					{% if posts %}
+						<ul class="post-list">
+							{% for post in posts %}
+							<li class="post-card">
+								<a href="/blog/{{ post.slug }}">
+									<h2>{{ post.get('title', post.slug) }}</h2>
+									<p class="post-meta">{{ post.get('date', '') }}</p>
+									{% if post.get('description') %}
+									<p class="post-description">{{ post.description }}</p>
+									{% endif %}
+								</a>
+							</li>
+							{% endfor %}
+						</ul>
+					{% else %}
+						<p class="no-posts">No posts yet. Check back soon.</p>
+					{% endif %}
+				</main>
+
+				<footer class="blog-footer">
+					<a href="/" class="back-link">&larr; Back to Portfolio</a>
+				</footer>
+			</div>
+		</div>
+
+		<div id="bg"></div>
+
+		<script src="{{ url_for('static', filename='assets/js/jquery.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='assets/js/browser.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='assets/js/breakpoints.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='assets/js/util.js') }}"></script>
+		<script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
+
+	</body>
+</html>
