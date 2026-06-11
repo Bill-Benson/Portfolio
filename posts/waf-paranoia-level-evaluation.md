@@ -1,6 +1,6 @@
 ---
 title: Do Higher WAF Paranoia Levels Actually Improve Detection?
-date: 11 June 2026
+date: 2026-06-11
 description: My MSc dissertation tested ModSecurity CRS 3.3.8 at Paranoia Level 1 and PL2 against 200 structured SQLi and XSS payloads. TPR was identical at 97.0%. The central finding: no PL2-specific rules fired at all. Every difference between configurations was threshold arithmetic.
 tags: WAF, ModSecurity, Security Research
 ---
