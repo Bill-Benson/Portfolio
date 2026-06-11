@@ -2,6 +2,7 @@ import os
 import re
 import csv
 import smtplib
+from datetime import datetime
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from flask import Flask, render_template, request, abort
@@ -10,6 +11,8 @@ from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
 from dotenv import load_dotenv
 import markdown2
+
+SLUG_RE = re.compile(r'^[a-z0-9-]+$')
 
 load_dotenv()
 
@@ -35,6 +38,13 @@ def parse_post(filepath):
                 key, _, value = line.partition(': ')
                 meta[key.strip()] = value.strip()
             body = parts[2]
+    # 'date' is stored as ISO (YYYY-MM-DD) for reliable sorting; expose a
+    # human-readable 'date_display' for templates.
+    iso = meta.get('date', '')
+    try:
+        meta['date_display'] = datetime.strptime(iso, '%Y-%m-%d').strftime('%d %B %Y').lstrip('0')
+    except ValueError:
+        meta['date_display'] = iso
     meta['html'] = markdown2.markdown(body, extras=['fenced-code-blocks', 'tables', 'strike'])
     return meta
 
@@ -43,12 +53,13 @@ def load_posts():
     posts = []
     if not os.path.isdir(POSTS_DIR):
         return posts
-    for filename in sorted(os.listdir(POSTS_DIR), reverse=True):
+    for filename in os.listdir(POSTS_DIR):
         if filename.endswith('.md'):
-            slug = filename[:-3]
             meta = parse_post(os.path.join(POSTS_DIR, filename))
-            meta['slug'] = slug
+            meta['slug'] = filename[:-3]
             posts.append(meta)
+    # Newest first, ordered by the ISO date field rather than filename.
+    posts.sort(key=lambda p: p.get('date', ''), reverse=True)
     return posts
 
 
@@ -65,6 +76,8 @@ def blog_index():
 
 @app.route('/blog/<slug>')
 def blog_post(slug):
+    if not SLUG_RE.match(slug):
+        abort(404)
     filepath = os.path.join(POSTS_DIR, f'{slug}.md')
     if not os.path.isfile(filepath):
         abort(404)

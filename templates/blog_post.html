@@ -1,14 +1,15 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>{{ post.get('title', 'Post') }} - Bill Benson</title>
+		<title>{{ post.get('title', post.slug) }} - Bill Benson</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		{% if post.get('description') %}<meta name="description" content="{{ post.description }}" />{% endif %}
 		<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/main.css') }}" />
 		<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/blog.css') }}" />
 		<link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}" />
 	</head>
-	<body class="is-preload blog-page">
+	<body class="blog-page">
 
 		<div id="blog-wrapper">
 			<div id="blog-container">
@@ -16,7 +17,7 @@
 					<a href="/blog" class="back-link">&larr; Back to Blog</a>
 					<h1>{{ post.get('title', post.slug) }}</h1>
 					<p class="post-meta">
-						{{ post.get('date', '') }}
+						{{ post.get('date_display', '') }}
 						{% if post.get('tags') %} &mdash; {{ post.tags }}{% endif %}
 					</p>
 				</header>
@@ -33,12 +34,6 @@
 		</div>
 
 		<div id="bg"></div>
-
-		<script src="{{ url_for('static', filename='assets/js/jquery.min.js') }}"></script>
-		<script src="{{ url_for('static', filename='assets/js/browser.min.js') }}"></script>
-		<script src="{{ url_for('static', filename='assets/js/breakpoints.min.js') }}"></script>
-		<script src="{{ url_for('static', filename='assets/js/util.js') }}"></script>
-		<script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
 
 	</body>
 </html>
