@@ -1559,6 +1559,24 @@ input, select, textarea {
 				opacity: 1;
 			}
 
+			#main article .back-link {
+				display: inline-block;
+				color: rgba(255, 255, 255, 0.5);
+				font-size: 0.75rem;
+				text-decoration: none;
+				letter-spacing: 0.1em;
+				text-transform: uppercase;
+				border-bottom: none;
+				-moz-transition: color 0.2s ease;
+				-webkit-transition: color 0.2s ease;
+				-ms-transition: color 0.2s ease;
+				transition: color 0.2s ease;
+			}
+
+			#main article .back-link:hover {
+				color: #ffffff;
+			}
+
 			#main article .close {
 				display: block;
 				position: absolute;
