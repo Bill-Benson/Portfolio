@@ -62,6 +62,11 @@
 								</section>
 
 								<section>
+									<h3>WAF Bypass Detection in Microsoft Sentinel</h3>
+									<p>Detection-engineering lab that ingests ModSecurity/NGINX WAF logs into Microsoft Sentinel to surface attacks that evaded the WAF &mdash; suspicious requests returning HTTP 200 with no matching rule hit. Uses a custom dual-table schema and a <code>leftanti</code> KQL join to compare WAF verdicts against actual responses, validated against the dissertation dataset to rediscover a boolean-blind SQLi bypass. Built with Azure Monitor Logs Ingestion API, Data Collection Rules, scoped Entra app registration, and Python log parsing. <a href="https://github.com/Bill-Benson/sentinel-waf-detection" target="_blank">See More</a></p>
+								</section>
+
+								<section>
 									<h3>Malware Detection with Machine Learning</h3>
 									<p>Compared Linear SVM, LightGBM, and a PyTorch MLP for static PE malware classification on the EMBER 2018 dataset. LightGBM achieved an F1 score of 0.9474 and ROC AUC of 0.9892. Includes robustness testing across two stratified subsets to verify ranking stability. <a href="https://github.com/Bill-Benson/malware-detection-ml" target="_blank">See More</a> &nbsp;|&nbsp; <a href="/blog/malware-detection-model-comparison">Read Post</a></p>
 								</section>
