@@ -1,39 +1,55 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 	<head>
-		<title>{{ post.get('title', post.slug) }} - Bill Benson</title>
 		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>{{ post.get('title', post.slug) }} - Bill Benson</title>
 		{% if post.get('description') %}<meta name="description" content="{{ post.description }}" />{% endif %}
-		<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/main.css') }}" />
-		<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/blog.css') }}" />
+		<meta property="og:title" content="{{ post.get('title', post.slug) }}" />
+		{% if post.get('description') %}<meta property="og:description" content="{{ post.description }}" />{% endif %}
+		<meta property="og:type" content="article" />
+		<meta name="theme-color" content="#0a0f16" />
+		<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/site.css') }}" />
 		<link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}" />
+		<script>document.documentElement.classList.add('js');</script>
 	</head>
-	<body class="blog-page">
+	<body>
+		<a class="skip-link" href="#main">Skip to content</a>
 
-		<div id="blog-wrapper">
-			<div id="blog-container">
-				<header class="blog-header">
-					<a href="/blog" class="back-link">&larr; Back to Blog</a>
-					<h1>{{ post.get('title', post.slug) }}</h1>
-					<p class="post-meta">
-						{{ post.get('date_display', '') }}
-						{% if post.get('tags') %} &mdash; {{ post.tags }}{% endif %}
-					</p>
-				</header>
-
-				<article class="post-content">
-					{{ post.html | safe }}
-				</article>
-
-				<footer class="blog-footer">
-					<a href="/blog" class="back-link">&larr; Back to Blog</a>
-					<a href="/" class="back-link" style="margin-left: 2rem;">&larr; Back to Portfolio</a>
-				</footer>
+		<nav class="site-nav" aria-label="Main">
+			<div class="nav-inner">
+				<a class="nav-logo" href="/"><span class="prompt">~$</span> bill.benson</a>
+				<button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span class="fas fa-bars" aria-hidden="true"></span></button>
+				<ul class="nav-links">
+					<li><a href="/#projects">Projects</a></li>
+					<li><a href="/#experience">Experience</a></li>
+					<li><a href="/#about">About</a></li>
+					<li><a href="/#contact">Contact</a></li>
+					<li><a href="/blog" class="nav-cta">Blog</a></li>
+				</ul>
 			</div>
-		</div>
+		</nav>
 
-		<div id="bg"></div>
+		<main id="main" class="blog-main">
+			<header class="blog-header">
+				<a href="/blog" class="back-link">&larr; All posts</a>
+				<h1>{{ post.get('title', post.slug) }}</h1>
+				<p class="post-meta">
+					{{ post.get('date_display', '') }}
+					{% if post.get('tags') %} &middot; {{ post.tags }}{% endif %}
+				</p>
+			</header>
 
+			<article class="post-content">
+				{{ post.html | safe }}
+			</article>
+
+			<footer class="blog-footer">
+				<a href="/blog" class="back-link">&larr; All posts</a>
+				<a href="/" class="back-link">&larr; Back to portfolio</a>
+			</footer>
+		</main>
+
+		<script src="{{ url_for('static', filename='assets/js/site.js') }}"></script>
 	</body>
 </html>

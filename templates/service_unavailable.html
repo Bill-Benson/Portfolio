@@ -1,50 +1,20 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 	<head>
-		<title>BILL BENSON</title>
 		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/main.css') }}" />
-		<noscript><link rel="stylesheet" href="{{ url_for('static', filename='assets/css/noscript.css') }}" /></noscript>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Something went wrong - Bill Benson</title>
+		<meta name="robots" content="noindex" />
+		<meta name="theme-color" content="#0a0f16" />
+		<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/site.css') }}" />
+		<link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}" />
 	</head>
-	<body class="is-preload">
-
-		<!-- Wrapper -->
-			<div id="wrapper">
-
-				<!-- Header -->
-					<header id="header">
-						<div class="logo">
-							<span class="icon fa-gem"></span>
-						</div>
-						<div class="content">
-							<div class="inner">
-								<h1>Something went wrong. Please check your details and try again, or use the email icon to contact me directly.</h1>
-							</div>
-						</div>
-					</header>
-
-				<!-- Footer -->
-					<footer id="footer">
-						<ul class="icons">
-							<li><a href="https://www.linkedin.com/in/bill-benson-1930a923a" target="_blank" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
-							<li><a href="mailto:billbenson886@gmail.com?subject=Portfolio%20Inquiry&body=Hello%20Bill," class="icon solid fa-envelope"><span class="label">Email</span></a></li>
-							<li><a href="https://drive.google.com/file/d/1GnMHGwJx0Gw_BZ_Hqf7PQ3WAAnLKGCl3/view?usp=sharing" target="_blank" class="icon solid fa-file"><span class="label">Resume</span></a></li>
-							<li><a href="https://github.com/Bill-Benson" target="_blank" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-						</ul>
-					</footer>
-
-			</div>
-
-		<!-- BG -->
-			<div id="bg"></div>
-
-		<!-- Scripts -->
-			<script src="{{ url_for('static', filename='assets/js/jquery.min.js') }}"></script>
-			<script src="{{ url_for('static', filename='assets/js/browser.min.js') }}"></script>
-			<script src="{{ url_for('static', filename='assets/js/breakpoints.min.js') }}"></script>
-			<script src="{{ url_for('static', filename='assets/js/util.js') }}"></script>
-			<script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
-
+	<body>
+		<main class="message-page error">
+			<span class="msg-icon"><span class="fas fa-exclamation-triangle" aria-hidden="true"></span></span>
+			<h1>Something went wrong</h1>
+			<p>Please check your details and try again, or email me directly at <a href="mailto:billbenson886@gmail.com">billbenson886@gmail.com</a>.</p>
+			<a href="/#contact" class="btn btn-primary"><span class="fas fa-home" aria-hidden="true"></span> Back to contact form</a>
+		</main>
 	</body>
 </html>

@@ -1,51 +1,65 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 	<head>
-		<title>Blog - Bill Benson</title>
 		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Blog - Bill Benson</title>
 		<meta name="description" content="Writeups, research, and notes on security topics by Bill Benson." />
-		<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/main.css') }}" />
-		<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/blog.css') }}" />
+		<meta property="og:title" content="Blog - Bill Benson" />
+		<meta property="og:description" content="Writeups, research, and notes on security topics." />
+		<meta property="og:type" content="website" />
+		<meta name="theme-color" content="#0a0f16" />
+		<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/site.css') }}" />
 		<link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}" />
+		<script>document.documentElement.classList.add('js');</script>
 	</head>
-	<body class="blog-page">
+	<body>
+		<a class="skip-link" href="#main">Skip to content</a>
 
-		<div id="blog-wrapper">
-			<div id="blog-container">
-				<header class="blog-header">
-					<a href="/" class="back-link">&larr; Back to Portfolio</a>
-					<h1>Blog</h1>
-					<p>Writeups, research, and notes on security topics.</p>
-				</header>
-
-				<main>
-					{% if posts %}
-						<ul class="post-list">
-							{% for post in posts %}
-							<li class="post-card">
-								<a href="/blog/{{ post.slug }}">
-									<h2>{{ post.get('title', post.slug) }}</h2>
-									<p class="post-meta">{{ post.get('date_display', '') }}</p>
-									{% if post.get('description') %}
-									<p class="post-description">{{ post.description }}</p>
-									{% endif %}
-								</a>
-							</li>
-							{% endfor %}
-						</ul>
-					{% else %}
-						<p class="no-posts">No posts yet. Check back soon.</p>
-					{% endif %}
-				</main>
-
-				<footer class="blog-footer">
-					<a href="/" class="back-link">&larr; Back to Portfolio</a>
-				</footer>
+		<nav class="site-nav" aria-label="Main">
+			<div class="nav-inner">
+				<a class="nav-logo" href="/"><span class="prompt">~$</span> bill.benson</a>
+				<button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span class="fas fa-bars" aria-hidden="true"></span></button>
+				<ul class="nav-links">
+					<li><a href="/#projects">Projects</a></li>
+					<li><a href="/#experience">Experience</a></li>
+					<li><a href="/#about">About</a></li>
+					<li><a href="/#contact">Contact</a></li>
+					<li><a href="/blog" class="nav-cta">Blog</a></li>
+				</ul>
 			</div>
-		</div>
+		</nav>
 
-		<div id="bg"></div>
+		<main id="main" class="blog-main">
+			<header class="blog-header">
+				<span class="hero-kicker">~$ ls posts/</span>
+				<h1>Blog</h1>
+				<p>Writeups, research, and notes on security topics.</p>
+			</header>
 
+			{% if posts %}
+				<ul class="post-list">
+					{% for post in posts %}
+					<li class="post-card">
+						<a href="/blog/{{ post.slug }}">
+							<h2>{{ post.get('title', post.slug) }}</h2>
+							<p class="post-meta">{{ post.get('date_display', '') }}</p>
+							{% if post.get('description') %}
+							<p class="post-description">{{ post.description }}</p>
+							{% endif %}
+						</a>
+					</li>
+					{% endfor %}
+				</ul>
+			{% else %}
+				<p class="no-posts">No posts yet. Check back soon.</p>
+			{% endif %}
+
+			<footer class="blog-footer">
+				<a href="/" class="back-link">&larr; Back to portfolio</a>
+			</footer>
+		</main>
+
+		<script src="{{ url_for('static', filename='assets/js/site.js') }}"></script>
 	</body>
 </html>

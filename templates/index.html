@@ -1,231 +1,397 @@
-<!DOCTYPE HTML>
-
-<html>
+<!DOCTYPE html>
+<html lang="en">
 	<head>
-		<title>BILL BENSON</title>
 		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/main.css') }}" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Bill Benson - Network Security Engineer</title>
+		<meta name="description" content="Bill Benson is a network security engineer in Wrexham, UK. Sophos and Fortinet firewall engineering, Microsoft Sentinel detection, WAF research. MSc Cybersecurity with Distinction." />
+		<meta property="og:title" content="Bill Benson - Network Security Engineer" />
+		<meta property="og:description" content="Sophos and Fortinet firewall engineering, Microsoft Sentinel detection, WAF research. MSc Cybersecurity with Distinction." />
+		<meta property="og:type" content="website" />
+		<meta name="theme-color" content="#0a0f16" />
+		<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/site.css') }}" />
 		<link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}" />
-		<noscript><link rel="stylesheet" href="{{ url_for('static', filename='assets/css/noscript.css') }}" /></noscript>
+		<script>document.documentElement.classList.add('js');</script>
 	</head>
-	<body class="is-preload">
+	<body>
+		<a class="skip-link" href="#main">Skip to content</a>
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+		<nav class="site-nav" aria-label="Main">
+			<div class="nav-inner">
+				<a class="nav-logo" href="#top"><span class="prompt">~$</span> bill.benson</a>
+				<button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span class="fas fa-bars" aria-hidden="true"></span></button>
+				<ul class="nav-links">
+					<li><a href="#projects">Projects</a></li>
+					<li><a href="#experience">Experience</a></li>
+					<li><a href="#skills">Skills</a></li>
+					<li><a href="#about">About</a></li>
+					<li><a href="#contact">Contact</a></li>
+					<li><a href="/blog" class="nav-cta">Blog</a></li>
+				</ul>
+			</div>
+		</nav>
 
-				<!-- Header -->
-					<header id="header">
-						<div class="logo">
-							<span class="icon fa-gem"></span>
+		<main id="main">
+
+			<!-- Hero -->
+			<header class="hero" id="top">
+				<div class="hero-grid">
+					<div>
+						<span class="hero-kicker">~$ whoami</span>
+						<h1>Bill Benson</h1>
+						<p class="hero-role">Network <span class="accent">Security</span> Engineer</p>
+						<p class="hero-summary">I secure enterprise networks for a living, deploying and managing <strong>Sophos and Fortinet</strong> estates across 10+ client networks, and I build labs that test how attacks get past defences. <strong>MSc Cybersecurity with Distinction</strong>, Wrexham University.</p>
+						<p class="status-badge"><span class="dot" aria-hidden="true"></span> open to work &middot; UK &middot; on-site / hybrid / remote</p>
+						<div class="hero-actions">
+							<a href="#projects" class="btn btn-primary">View projects <span class="fas fa-arrow-right" aria-hidden="true"></span></a>
+							<a href="/blog" class="btn btn-ghost">Read the blog</a>
+							<ul class="icon-row">
+								<li><a href="https://github.com/Bill-Benson" target="_blank" rel="noopener" aria-label="GitHub"><span class="fab fa-github" aria-hidden="true"></span></a></li>
+								<li><a href="https://www.linkedin.com/in/bill-benson-1930a923a" target="_blank" rel="noopener" aria-label="LinkedIn"><span class="fab fa-linkedin-in" aria-hidden="true"></span></a></li>
+								<li><a href="mailto:billbenson886@gmail.com?subject=Portfolio%20Inquiry" aria-label="Email"><span class="fas fa-envelope" aria-hidden="true"></span></a></li>
+								<li><a href="https://drive.google.com/file/d/1DE6VRAGQOC-139SzqGwtxJBSo18y61tl/view?usp=sharing" target="_blank" rel="noopener" aria-label="Resume"><span class="fas fa-file-alt" aria-hidden="true"></span></a></li>
+							</ul>
 						</div>
-						<div class="content">
-							<div class="inner">
-								<h1>Hi, I'm Bill Benson</h1>
-								<p>Network Security Engineer. MSc Cybersecurity with Distinction, Wrexham University. Sophos Firewall &amp; Endpoint Certified. CompTIA Security+.</p>
+					</div>
+					<div class="terminal" aria-hidden="true">
+						<div class="terminal-bar">
+							<span class="dot"></span><span class="dot"></span><span class="dot"></span>
+							<span class="title">bill@wrexham: ~</span>
+						</div>
+						<div class="terminal-body">
+							<div class="line"><span class="prompt">~$</span> <span class="cmd">whoami</span></div>
+							<div class="line out">network security engineer :: <span class="hl">sophos / fortinet</span></div>
+							<div class="line"><span class="prompt">~$</span> <span class="cmd">ls certs/</span></div>
+							<div class="line out">security+  isc2-cc  sophos-firewall-v20  sophos-endpoint-v5</div>
+							<div class="line"><span class="prompt">~$</span> <span class="cmd">cat status.txt</span></div>
+							<div class="line out"><span class="hl">open_to_work=true</span></div>
+							<div class="line out">location="wrexham, uk"  remote=ok  hybrid=ok</div>
+							<div class="line"><span class="prompt">~$</span> <span class="cursor"></span></div>
+						</div>
+					</div>
+				</div>
+			</header>
+
+			<!-- Projects -->
+			<section class="section" id="projects">
+				<div class="section-heading" data-reveal>
+					<span class="index">01.</span>
+					<h2>Projects</h2>
+				</div>
+
+				<div class="featured-grid">
+					<article class="project-card" data-reveal>
+						<p class="card-label">Featured &middot; MSc Dissertation</p>
+						<h3>WAF Paranoia Level Evaluation</h3>
+						<p class="metric">PL1 &rarr; PL2: detection unchanged (TPR 97.0%), false positives doubled (1.0% &rarr; 2.0%)</p>
+						<p>Empirical comparison of ModSecurity CRS 3.3.8 at Paranoia Level 1 vs PL2 against structured SQLi and XSS payloads in a Docker-based reverse-proxy testbed. Every observed difference traced back to threshold arithmetic rather than additional rule logic: a practical argument against blindly raising paranoia levels.</p>
+						<ul class="tags">
+							<li>ModSecurity</li><li>OWASP CRS</li><li>Docker</li><li>SQLi / XSS</li><li>Python</li>
+						</ul>
+						<div class="card-links">
+							<a href="https://github.com/Bill-Benson/Modsecurity-crs-paranoia-evaluation" target="_blank" rel="noopener"><span class="fab fa-github" aria-hidden="true"></span>Source</a>
+							<a href="/blog/waf-paranoia-level-evaluation"><span class="fas fa-arrow-right" aria-hidden="true"></span>Read the write-up</a>
+						</div>
+					</article>
+
+					<article class="project-card" data-reveal>
+						<p class="card-label">Featured &middot; Detection Engineering</p>
+						<h3>WAF Bypass Detection in Microsoft Sentinel</h3>
+						<p class="metric">Rediscovered a boolean-blind SQLi bypass with a leftanti KQL join: HTTP 200, zero rule hits</p>
+						<p>Detection lab that ingests ModSecurity and NGINX logs into Microsoft Sentinel via the Azure Monitor Logs Ingestion API and surfaces attacks the WAF let through. Built on a custom dual-table schema, Data Collection Rules, a scoped Entra app registration, and Python log parsing; validated against the dissertation dataset.</p>
+						<ul class="tags">
+							<li>Microsoft Sentinel</li><li>KQL</li><li>Azure Monitor</li><li>Entra ID</li><li>Python</li>
+						</ul>
+						<div class="card-links">
+							<a href="https://github.com/Bill-Benson/sentinel-waf-detection" target="_blank" rel="noopener"><span class="fab fa-github" aria-hidden="true"></span>Source</a>
+							<a href="/blog/waf-bypass-detection-sentinel"><span class="fas fa-arrow-right" aria-hidden="true"></span>Read the write-up</a>
+						</div>
+					</article>
+				</div>
+
+				<div class="project-grid">
+					<article class="project-card" data-reveal>
+						<p class="card-icon"><span class="fas fa-bug" aria-hidden="true"></span></p>
+						<h3>Malware Detection with ML</h3>
+						<p>Linear SVM vs LightGBM vs a PyTorch MLP for static PE malware classification on EMBER 2018. LightGBM led with F1 0.9474 and ROC AUC 0.9892; ranking stability verified across two stratified subsets.</p>
+						<ul class="tags"><li>LightGBM</li><li>PyTorch</li><li>EMBER 2018</li></ul>
+						<div class="card-links">
+							<a href="https://github.com/Bill-Benson/malware-detection-ml" target="_blank" rel="noopener"><span class="fab fa-github" aria-hidden="true"></span>Source</a>
+							<a href="/blog/malware-detection-model-comparison"><span class="fas fa-arrow-right" aria-hidden="true"></span>Write-up</a>
+						</div>
+					</article>
+
+					<article class="project-card" data-reveal>
+						<p class="card-icon"><span class="fas fa-heartbeat" aria-hidden="true"></span></p>
+						<h3>Heart Disease Classifier</h3>
+						<p>Logistic regression, random forest, and XGBoost on the UCI Heart Disease dataset, evaluated with stratified 5-fold cross-validation, calibration curves, ROC analysis, and McNemar's testing.</p>
+						<ul class="tags"><li>scikit-learn</li><li>XGBoost</li><li>Statistics</li></ul>
+						<div class="card-links">
+							<a href="https://github.com/Bill-Benson/heart-disease-ml-classifier" target="_blank" rel="noopener"><span class="fab fa-github" aria-hidden="true"></span>Source</a>
+						</div>
+					</article>
+
+					<article class="project-card" data-reveal>
+						<p class="card-icon"><span class="fas fa-crosshairs" aria-hidden="true"></span></p>
+						<h3>Web App Security Scanner</h3>
+						<p>Python scanner that enumerates links and forms on target web applications and tests for reflected XSS. Built and tested against Metasploitable in an isolated lab.</p>
+						<ul class="tags"><li>Python</li><li>XSS</li><li>Recon</li></ul>
+						<div class="card-links">
+							<a href="https://github.com/Bill-Benson/web-app-security-scanner" target="_blank" rel="noopener"><span class="fab fa-github" aria-hidden="true"></span>Source</a>
+						</div>
+					</article>
+
+					<article class="project-card" data-reveal>
+						<p class="card-icon"><span class="fas fa-key" aria-hidden="true"></span></p>
+						<h3>Password Breach Checker</h3>
+						<p>Checks passwords against the Have I Been Pwned Pwned Passwords API using k-Anonymity, so no plaintext password ever leaves the machine.</p>
+						<ul class="tags"><li>Python</li><li>k-Anonymity</li><li>HIBP API</li></ul>
+						<div class="card-links">
+							<a href="https://github.com/Bill-Benson/pwned-password-checker" target="_blank" rel="noopener"><span class="fab fa-github" aria-hidden="true"></span>Source</a>
+						</div>
+					</article>
+
+					<article class="project-card" data-reveal>
+						<p class="card-icon"><span class="fas fa-newspaper" aria-hidden="true"></span></p>
+						<h3>Hacker News Scraper</h3>
+						<p>Web scraper that extracts top-voted Hacker News stories, filters by vote threshold, and delivers a clean, ranked daily digest by email.</p>
+						<ul class="tags"><li>Python</li><li>Web scraping</li><li>Email</li></ul>
+						<div class="card-links">
+							<a href="https://github.com/Bill-Benson/scrape" target="_blank" rel="noopener"><span class="fab fa-github" aria-hidden="true"></span>Source</a>
+						</div>
+					</article>
+
+					<article class="project-card" data-reveal>
+						<p class="card-icon"><span class="fas fa-code" aria-hidden="true"></span></p>
+						<h3>This Portfolio</h3>
+						<p>Flask backend with a markdown-powered blog engine, CSRF-protected contact form, and rate limiting. Deployed on Render.</p>
+						<ul class="tags"><li>Flask</li><li>Python</li><li>Render</li></ul>
+						<div class="card-links">
+							<a href="https://github.com/Bill-Benson/Portfolio" target="_blank" rel="noopener"><span class="fab fa-github" aria-hidden="true"></span>Source</a>
+						</div>
+					</article>
+				</div>
+			</section>
+
+			<!-- Experience -->
+			<section class="section" id="experience">
+				<div class="section-heading" data-reveal>
+					<span class="index">02.</span>
+					<h2>Experience</h2>
+				</div>
+
+				<ol class="timeline">
+					<li data-reveal>
+						<div class="role-header">
+							<h3>Network Security Engineer</h3>
+							<span class="period">Jul 2024 &ndash; Jan 2025</span>
+						</div>
+						<p class="org">Casper Technologies Ltd &middot; Lagos, Nigeria</p>
+						<ul>
+							<li>Deployed and managed Sophos XG/XGS and FortiGate firewall environments across 10+ enterprise client networks in oil and gas, financial services, and telecoms; configured policy rules, NAT, IPS, web filtering, and application control</li>
+							<li>Executed XG to XGS firewall migrations using Sophos Migration Assistant, including firmware upgrades to SFOS v21.0, backup and restore with SSMK handling, and post-migration validation</li>
+							<li>Delivered a Sophos Intercept X Advanced pilot and full rollout via Microsoft Intune; managed a TrendMicro to Intercept X migration; configured Sophos Email Protection with Microsoft 365 mail flow rules</li>
+							<li>Managed P1&ndash;P4 incident response on Motadata ServiceOps ITSM; conducted Sophos SURF health checks covering ATP, ARP poisoning detection, and certificate management</li>
+							<li>Authored scopes of work, implementation plans, and technical reports to MD level; delivered cybersecurity awareness training to 200+ staff</li>
+						</ul>
+					</li>
+					<li data-reveal>
+						<div class="role-header">
+							<h3>Penetration Testing (Self-directed)</h3>
+							<span class="period">Sep 2023 &ndash; Jun 2024</span>
+						</div>
+						<p class="org">Home labs</p>
+						<ul>
+							<li>Completed PortSwigger Web Security Academy labs covering SQL injection, XSS, and authentication vulnerabilities</li>
+							<li>Built isolated test environments to practise reconnaissance, exploitation, and remediation validation</li>
+							<li>Developed Python tooling for vulnerability scanning and password breach checking</li>
+						</ul>
+					</li>
+					<li data-reveal>
+						<div class="role-header">
+							<h3>IT Support Engineer</h3>
+							<span class="period">Aug 2022 &ndash; Jul 2023</span>
+						</div>
+						<p class="org">Horty Benade Company &middot; Lagos, Nigeria</p>
+						<ul>
+							<li>Provided first and second-line support across Windows environments, troubleshooting hardware, network connectivity, and Active Directory user issues</li>
+							<li>Resolved endpoint security alerts and supported system patching processes</li>
+							<li>Documented recurring issues and created resolution guides to improve team response times</li>
+						</ul>
+					</li>
+				</ol>
+			</section>
+
+			<!-- Skills -->
+			<section class="section" id="skills">
+				<div class="section-heading" data-reveal>
+					<span class="index">03.</span>
+					<h2>Skills</h2>
+				</div>
+
+				<div class="skills-grid">
+					<div class="skill-group" data-reveal>
+						<h3><span class="fas fa-network-wired" aria-hidden="true"></span> Network &amp; Firewall</h3>
+						<ul class="tags">
+							<li>Sophos XG / XGS</li>
+							<li>FortiGate</li>
+							<li>Policy &amp; NAT</li>
+							<li>IPS</li>
+							<li>Web filtering</li>
+							<li>Application control</li>
+							<li>Firewall migrations</li>
+						</ul>
+					</div>
+					<div class="skill-group" data-reveal>
+						<h3><span class="fas fa-shield-alt" aria-hidden="true"></span> Endpoint &amp; Identity</h3>
+						<ul class="tags">
+							<li>Sophos Intercept X</li>
+							<li>Microsoft Intune</li>
+							<li>Email protection / M365</li>
+							<li>Active Directory</li>
+							<li>System patching</li>
+							<li>1st &amp; 2nd line support</li>
+						</ul>
+					</div>
+					<div class="skill-group" data-reveal>
+						<h3><span class="fas fa-terminal" aria-hidden="true"></span> Testing &amp; Tooling</h3>
+						<ul class="tags">
+							<li>Python scripting</li>
+							<li>Microsoft Sentinel / KQL</li>
+							<li>Docker</li>
+							<li>Web app testing</li>
+							<li>PortSwigger Academy</li>
+							<li>Windows &amp; Linux</li>
+						</ul>
+					</div>
+				</div>
+			</section>
+
+			<!-- Certifications -->
+			<section class="section" id="certifications">
+				<div class="section-heading" data-reveal>
+					<span class="index">04.</span>
+					<h2>Certifications</h2>
+				</div>
+
+				<div class="cert-grid">
+					<a class="cert-card" data-reveal href="https://www.credly.com/badges/accff0a2-b645-4686-906d-ab0728972bd5/" target="_blank" rel="noopener">
+						<span class="cert-icon"><span class="fas fa-shield-alt" aria-hidden="true"></span></span>
+						<span>
+							<span class="cert-name">CompTIA Security+ CE</span><br />
+							<span class="cert-issuer">CompTIA</span>
+						</span>
+						<span class="verify">verify &nearr;</span>
+					</a>
+					<div class="cert-card" data-reveal>
+						<span class="cert-icon"><span class="fas fa-certificate" aria-hidden="true"></span></span>
+						<span>
+							<span class="cert-name">Certified in Cybersecurity (CC)</span><br />
+							<span class="cert-issuer">ISC2</span>
+						</span>
+					</div>
+					<div class="cert-card" data-reveal>
+						<span class="cert-icon"><span class="fas fa-network-wired" aria-hidden="true"></span></span>
+						<span>
+							<span class="cert-name">Sophos Firewall Certified Engineer v20.0</span><br />
+							<span class="cert-issuer">Sophos</span>
+						</span>
+					</div>
+					<div class="cert-card" data-reveal>
+						<span class="cert-icon"><span class="fas fa-shield-alt" aria-hidden="true"></span></span>
+						<span>
+							<span class="cert-name">Central Endpoint Protection Certified Engineer v5.0</span><br />
+							<span class="cert-issuer">Sophos</span>
+						</span>
+					</div>
+					<a class="cert-card" data-reveal href="https://www.coursera.org/account/accomplishments/professional-cert/2XFY2LSHQFYY" target="_blank" rel="noopener">
+						<span class="cert-icon"><span class="fas fa-graduation-cap" aria-hidden="true"></span></span>
+						<span>
+							<span class="cert-name">Google Cybersecurity Professional Certificate</span><br />
+							<span class="cert-issuer">Google &middot; Coursera</span>
+						</span>
+						<span class="verify">verify &nearr;</span>
+					</a>
+				</div>
+			</section>
+
+			<!-- About -->
+			<section class="section" id="about">
+				<div class="section-heading" data-reveal>
+					<span class="index">05.</span>
+					<h2>About</h2>
+				</div>
+
+				<div class="about-grid">
+					<div class="about-text" data-reveal>
+						<p>I started out in IT support in Lagos, troubleshooting Windows estates and Active Directory, then moved into network security engineering, deploying and managing <strong>Sophos and Fortinet environments for enterprise clients</strong> in financial services, oil and gas, and telecoms.</p>
+						<p>In 2026 I completed an <strong>MSc in Cybersecurity at Wrexham University with Distinction</strong>. My dissertation put ModSecurity WAF rulesets under empirical test in a Docker-based reverse-proxy testbed, and I've since extended that work into detection engineering with Microsoft Sentinel. Alongside the degree I've worked through PortSwigger's Web Security Academy and built ML-based malware detection models.</p>
+						<p>I'm <strong>available immediately</strong> for network security, IT support, and junior security roles across the UK: on-site, hybrid, or remote.</p>
+						<p>Away from the keyboard: gaming, basketball, and chess.</p>
+					</div>
+					<div>
+						<div class="edu-card" data-reveal>
+							<h3>MSc Cybersecurity</h3>
+							<p class="edu-org">Wrexham University, UK &middot; 2026</p>
+							<span class="edu-note">Distinction &middot; 87.5% dissertation</span>
+						</div>
+						<div class="edu-card" data-reveal>
+							<h3>BSc Computer Science</h3>
+							<p class="edu-org">University of Ibadan, Nigeria</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Contact -->
+			<section class="section" id="contact">
+				<div class="section-heading" data-reveal>
+					<span class="index">06.</span>
+					<h2>Contact</h2>
+				</div>
+
+				<div class="contact-grid">
+					<div class="contact-intro" data-reveal>
+						<p>I'm currently looking for network security, IT support, and junior security roles in the UK. If you're hiring, or just want to talk firewalls, WAFs, or detection, my inbox is open.</p>
+						<ul class="contact-methods">
+							<li><a href="mailto:billbenson886@gmail.com?subject=Portfolio%20Inquiry"><span class="fas fa-envelope" aria-hidden="true"></span> billbenson886@gmail.com</a></li>
+							<li><a href="https://www.linkedin.com/in/bill-benson-1930a923a" target="_blank" rel="noopener"><span class="fab fa-linkedin-in" aria-hidden="true"></span> linkedin.com/in/bill-benson</a></li>
+							<li><a href="https://github.com/Bill-Benson" target="_blank" rel="noopener"><span class="fab fa-github" aria-hidden="true"></span> github.com/Bill-Benson</a></li>
+							<li><a href="https://drive.google.com/file/d/1DE6VRAGQOC-139SzqGwtxJBSo18y61tl/view?usp=sharing" target="_blank" rel="noopener"><span class="fas fa-file-alt" aria-hidden="true"></span> Download my CV</a></li>
+						</ul>
+					</div>
+					<form class="contact-form" data-reveal method="post" action="/submit_form">
+						<input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+						<div class="field-row">
+							<div class="field">
+								<label for="name">name</label>
+								<input type="text" name="name" id="name" maxlength="100" autocomplete="name" required />
+							</div>
+							<div class="field">
+								<label for="email">email</label>
+								<input type="email" name="email" id="email" maxlength="254" autocomplete="email" required />
 							</div>
 						</div>
-						<nav>
-							<ul>
-								<li><a href="#intro">Intro</a></li>
-								<li><a href="#work">Projects</a></li>
-								<li><a href="#about">About</a></li>
-								<li><a href="#experience">Experience</a></li>
-								<li><a href="#contact">Contact</a></li>
-								<li><a href="/blog">Blog</a></li>
-							</ul>
-						</nav>
-					</header>
+						<div class="field">
+							<label for="message">message</label>
+							<textarea name="message" id="message" rows="5" maxlength="2000" required></textarea>
+						</div>
+						<button type="submit" class="btn btn-primary">Send message <span class="fas fa-arrow-right" aria-hidden="true"></span></button>
+					</form>
+				</div>
+			</section>
+		</main>
 
-				<!-- Main -->
-					<div id="main">
+		<footer class="site-footer">
+			<ul class="icon-row">
+				<li><a href="https://github.com/Bill-Benson" target="_blank" rel="noopener" aria-label="GitHub"><span class="fab fa-github" aria-hidden="true"></span></a></li>
+				<li><a href="https://www.linkedin.com/in/bill-benson-1930a923a" target="_blank" rel="noopener" aria-label="LinkedIn"><span class="fab fa-linkedin-in" aria-hidden="true"></span></a></li>
+				<li><a href="mailto:billbenson886@gmail.com?subject=Portfolio%20Inquiry" aria-label="Email"><span class="fas fa-envelope" aria-hidden="true"></span></a></li>
+				<li><a href="https://drive.google.com/file/d/1DE6VRAGQOC-139SzqGwtxJBSo18y61tl/view?usp=sharing" target="_blank" rel="noopener" aria-label="Resume"><span class="fas fa-file-alt" aria-hidden="true"></span></a></li>
+			</ul>
+			<p class="fine-print">&copy; 2026 Bill Benson &middot; built with Flask &middot; <a href="https://github.com/Bill-Benson/Portfolio" target="_blank" rel="noopener">view source</a></p>
+		</footer>
 
-						<!-- Intro -->
-							<article id="intro">
-								<h2 class="major">Intro</h2>
-								<span class="image main"><img src="{{ url_for('static', filename='images/intro2.jpg') }}" alt="" /></span>
-								<p>I'm Bill Benson, a network security engineer based in Wrexham, UK. I have hands-on experience deploying and managing enterprise Sophos and Fortinet environments across 10+ client networks in financial services, oil and gas, and telecoms sectors. I hold Sophos Firewall and Endpoint engineering certifications alongside CompTIA Security+ and ISC2 CC.</p>
-								<p>I completed an MSc in Cybersecurity at Wrexham University in April 2026, graduating with Distinction (87.5% dissertation score). My dissertation evaluated ModSecurity WAF rulesets in a Docker-based reverse-proxy testbed, and my coursework also covers ML-based malware detection and web application security testing via PortSwigger Web Security Academy.</p>
-								<p>I'm currently open to network security, IT support, and junior security roles across the UK, on-site, hybrid, or remote.</p>
-								<a href="#" class="back-link">&larr; Back</a>
-							</article>
-
-						<!-- Work -->
-							<article id="work">
-								<h2 class="major">Projects</h2>
-								<span class="image main"><img src="{{ url_for('static', filename='images/work.avif') }}" alt="" /></span>
-								<p>A selection of projects developed through MSc coursework and independent study. Source code available on my <a href="https://github.com/Bill-Benson" target="_blank">GitHub.</a></p>
-
-								<section>
-									<h3>WAF Paranoia Level Evaluation (MSc Dissertation)</h3>
-									<p>Empirical comparison of ModSecurity CRS 3.3.8 at Paranoia Level 1 vs PL2 against structured SQLi and XSS payloads in a Docker-based testbed. Key finding: raising the paranoia level produced zero improvement in detection rate (TPR held at 97.0%) while doubling the false positive rate from 1.0% to 2.0%. All differences were attributable to threshold arithmetic, not additional rule logic. <a href="https://github.com/Bill-Benson/Modsecurity-crs-paranoia-evaluation" target="_blank">See More</a> &nbsp;|&nbsp; <a href="/blog/waf-paranoia-level-evaluation">Read Post</a></p>
-								</section>
-
-								<section>
-									<h3>WAF Bypass Detection in Microsoft Sentinel</h3>
-									<p>Detection-engineering lab that ingests ModSecurity/NGINX WAF logs into Microsoft Sentinel to surface attacks that evaded the WAF &mdash; suspicious requests returning HTTP 200 with no matching rule hit. Uses a custom dual-table schema and a <code>leftanti</code> KQL join to compare WAF verdicts against actual responses, validated against the dissertation dataset to rediscover a boolean-blind SQLi bypass. Built with Azure Monitor Logs Ingestion API, Data Collection Rules, scoped Entra app registration, and Python log parsing. <a href="https://github.com/Bill-Benson/sentinel-waf-detection" target="_blank">See More</a> &nbsp;|&nbsp; <a href="/blog/waf-bypass-detection-sentinel">Read Post</a></p>
-								</section>
-
-								<section>
-									<h3>Malware Detection with Machine Learning</h3>
-									<p>Compared Linear SVM, LightGBM, and a PyTorch MLP for static PE malware classification on the EMBER 2018 dataset. LightGBM achieved an F1 score of 0.9474 and ROC AUC of 0.9892. Includes robustness testing across two stratified subsets to verify ranking stability. <a href="https://github.com/Bill-Benson/malware-detection-ml" target="_blank">See More</a> &nbsp;|&nbsp; <a href="/blog/malware-detection-model-comparison">Read Post</a></p>
-								</section>
-
-								<section>
-									<h3>Heart Disease Classifier</h3>
-									<p>Binary heart disease prediction using logistic regression, random forest, and XGBoost on the UCI Heart Disease dataset. Evaluated via stratified 5-fold cross-validation with calibration curves, ROC analysis, and McNemar's statistical testing. Built in Python using scikit-learn. <a href="https://github.com/Bill-Benson/heart-disease-ml-classifier" target="_blank">See More</a></p>
-								</section>
-
-								<section>
-									<h3>Web Application Security Scanner</h3>
-									<p>Python-based scanner that enumerates links and forms on target web applications and tests for reflected XSS vulnerabilities. Built and tested in an isolated lab environment using Metasploitable. <a href="https://github.com/Bill-Benson/web-app-security-scanner" target="_blank">See More</a></p>
-								</section>
-
-								<section>
-									<h3>Password Breach Checker</h3>
-									<p>Queries the Have I Been Pwned Pwned Passwords API using k-Anonymity to check whether a password has appeared in a known data breach. No plaintext passwords are transmitted at any point. <a href="https://github.com/Bill-Benson/pwned-password-checker" target="_blank">See More</a></p>
-								</section>
-
-								<section>
-									<h3>Hacker News Scraper</h3>
-									<p>Python web scraper that extracts top-voted stories from Hacker News and delivers a daily digest by email. Filters by vote threshold and outputs clean, ranked results. <a href="https://github.com/Bill-Benson/scrape" target="_blank">See More</a></p>
-								</section>
-
-								<section>
-									<h3>This Portfolio Website</h3>
-									<p>Customised HTML5 template with a Python and Flask backend, deployed on Render. <a href="https://github.com/Bill-Benson/Portfolio" target="_blank">See More</a></p>
-								</section>
-								<a href="#" class="back-link">&larr; Back</a>
-							</article>
-
-						<!-- About -->
-							<article id="about">
-								<h2 class="major">About</h2>
-								<span class="image main"><img src="{{ url_for('static', filename='images/about2.avif') }}" alt="" /></span>
-
-								<section>
-									<h3>Background</h3>
-									<p>I hold a Bachelor's degree in Computer Science from the University of Ibadan, Nigeria, and an MSc in Cybersecurity with Distinction from Wrexham University, completed April 2026. My professional experience includes network security engineering in Lagos and IT support as part of the Nigerian National Youth Service Corps programme.</p>
-								</section>
-
-								<section>
-									<h3>Currently</h3>
-									<p>MSc Cybersecurity completed April 2026 with Distinction (87.5% dissertation score). Available immediately for network security, IT support, and junior security roles across the UK. Open to remote and hybrid positions.</p>
-								</section>
-
-								<section>
-									<h3>Licenses &amp; Certifications</h3>
-									<a href="https://www.credly.com/badges/accff0a2-b645-4686-906d-ab0728972bd5/" target="_blank">CompTIA Security+ CE</a><br>
-									ISC2 Certified in Cybersecurity (CC)<br>
-									Sophos Firewall Certified Engineer v20.0<br>
-									Sophos Central Endpoint Protection Certified Engineer v5.0<br>
-									<a href="https://www.coursera.org/account/accomplishments/professional-cert/2XFY2LSHQFYY" target="_blank">Google Cybersecurity Professional Certificate</a><br>
-									</section>
-
-								<br>
-								<section>
-									<h3>Skills</h3>
-									<p>Firewall Engineering (Sophos, Fortinet) | IT Support (1st &amp; 2nd Line) | Active Directory | Network Security | Web Application Testing | Python Scripting | Windows &amp; Linux | Penetration Testing Fundamentals | Endpoint Security | System Patching</p>
-								</section>
-
-								<section>
-									<h3>Interests</h3>
-									<p>Gaming, basketball, and chess.</p>
-								</section>
-								<a href="#" class="back-link">&larr; Back</a>
-							</article>
-
-						<!-- Experience -->
-							<article id="experience">
-								<h2 class="major">Experience</h2>
-								<span class="image main"><img src="{{ url_for('static', filename='images/premium_photo-1701179596614-9c64f50cda76.avif') }}" alt="" /></span>
-
-								<section>
-									<h3>Network Security Engineer</h3>
-									<p class="float-right">Jul 2024 - Jan 2025</p>
-									<b>Casper Technologies Ltd | Lagos, Nigeria</b><br>
-									&bull; Deployed and managed Sophos XG/XGS and FortiGate firewall environments across 10+ enterprise client networks in oil and gas, financial services, and telecoms sectors; configured policy rules, NAT, IPS, web filtering, and application control<br>
-									&bull; Executed XG to XGS firewall migrations using Sophos Migration Assistant, including firmware upgrades to SFOS v21.0, backup and restore with SSMK handling, and post-migration validation<br>
-									&bull; Delivered Sophos Intercept X Advanced pilot and full rollout via Microsoft Intune; managed TrendMicro to Intercept X migration; configured Sophos Email Protection with Microsoft 365 mail flow rules<br>
-									&bull; Managed P1-P4 incident response on Motadata ServiceOps ITSM; conducted Sophos SURF health checks interpreting security posture reports covering ATP, ARP poisoning detection, and certificate management<br>
-									&bull; Authored scopes of work, implementation plans, and technical reports to MD level; delivered cybersecurity awareness training to 200+ staff<br><br>
-								</section>
-
-								<section>
-									<h3>Penetration Testing (Self-directed)</h3>
-									<p class="float-right">Sep 2023 - Jun 2024</p>
-									<b>Home Labs</b><br>
-									&bull; Completed PortSwigger Web Security Academy labs covering SQL injection, XSS, and authentication vulnerabilities<br>
-									&bull; Built isolated test environments to practise reconnaissance, exploitation, and remediation validation<br>
-									&bull; Developed Python tooling for vulnerability scanning and password breach checking<br><br>
-								</section>
-
-								<section>
-									<h3>IT Support Engineer</h3>
-									<p class="float-right">Aug 2022 - Jul 2023</p>
-									<b>Horty Benade Company | Lagos, Nigeria</b><br>
-									&bull; Provided first and second-line support across Windows environments, troubleshooting hardware, network connectivity, and Active Directory user issues<br>
-									&bull; Resolved endpoint security alerts and supported system patching processes<br>
-									&bull; Documented recurring issues and created resolution guides to improve team response times<br><br>
-								</section>
-								<a href="#" class="back-link">&larr; Back</a>
-							</article>
-
-						<!-- Contact -->
-							<article id="contact">
-								<h2 class="major">Contact</h2>
-								<form method="post" action="/submit_form">
-									<input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
-									<div class="fields">
-										<div class="field half">
-											<label for="name">Name</label>
-											<input type="text" name="name" id="name" required />
-										</div>
-										<div class="field half">
-											<label for="email">Email</label>
-											<input type="email" name="email" id="email" required />
-										</div>
-										<div class="field">
-											<label for="message">Message</label>
-											<textarea name="message" id="message" rows="4" required></textarea>
-										</div>
-									</div>
-									<ul class="actions">
-										<li><input type="submit" value="Send Message" class="primary"/></li>
-										<li><input type="reset" value="Reset" /></li>
-									</ul>
-								</form>
-								<ul class="icons">
-									<li><a href="https://www.linkedin.com/in/bill-benson-1930a923a" target="_blank" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
-									<li><a href="https://drive.google.com/file/d/1_DOcw9Q_YQD8tffL8UmFQT8FJE7er-FC/view?usp=drive_link" target="_blank" class="icon solid fa-file"><span class="label">Resume</span></a></li>
-									<li><a href="mailto:billbenson886@gmail.com?subject=Portfolio%20Inquiry&body=Hello%20Bill," class="icon solid fa-envelope"><span class="label">Email</span></a></li>
-									<li><a href="https://github.com/Bill-Benson" target="_blank" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-								</ul>
-								<a href="#" class="back-link">&larr; Back</a>
-							</article>
-					</div>
-
-				<!-- Footer -->
-					<footer id="footer">
-						<ul class="icons">
-							<li><a href="https://www.linkedin.com/in/bill-benson-1930a923a" target="_blank" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
-							<li><a href="mailto:billbenson886@gmail.com?subject=Portfolio%20Inquiry&body=Hello%20Bill," class="icon solid fa-envelope"><span class="label">Email</span></a></li>
-							<li><a href="https://drive.google.com/file/d/1_DOcw9Q_YQD8tffL8UmFQT8FJE7er-FC/view?usp=drive_link" target="_blank" class="icon solid fa-file"><span class="label">Resume</span></a></li>
-							<li><a href="https://github.com/Bill-Benson" target="_blank" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-						</ul>
-					</footer>
-
-			</div>
-
-		<!-- BG -->
-			<div id="bg"></div>
-
-		<!-- Scripts -->
-			<script src="{{ url_for('static', filename='assets/js/jquery.min.js') }}"></script>
-			<script src="{{ url_for('static', filename='assets/js/browser.min.js') }}"></script>
-			<script src="{{ url_for('static', filename='assets/js/breakpoints.min.js') }}"></script>
-			<script src="{{ url_for('static', filename='assets/js/util.js') }}"></script>
-			<script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
-
+		<script src="{{ url_for('static', filename='assets/js/site.js') }}"></script>
 	</body>
 </html>

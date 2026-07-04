@@ -1,10 +1,10 @@
-# Bill Benson — Portfolio
+# Bill Benson - Portfolio
 
 Personal portfolio website built with Python and Flask, deployed on Render.
 
 ## Stack
 - **Backend:** Python, Flask
-- **Frontend:** HTML5, CSS3, jQuery
+- **Frontend:** HTML5, CSS3, vanilla JavaScript (no frameworks)
 - **Security:** CSRF protection (Flask-WTF), rate limiting (Flask-Limiter)
 - **Contact form:** SMTP email via Gmail, submissions logged to CSV
 
