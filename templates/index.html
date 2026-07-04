@@ -21,8 +21,8 @@
 				<a class="nav-logo" href="#top"><span class="prompt">~$</span> bill.benson</a>
 				<button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span class="fas fa-bars" aria-hidden="true"></span></button>
 				<ul class="nav-links">
-					<li><a href="#projects">Projects</a></li>
 					<li><a href="#experience">Experience</a></li>
+					<li><a href="#projects">Projects</a></li>
 					<li><a href="#skills">Skills</a></li>
 					<li><a href="#about">About</a></li>
 					<li><a href="#contact">Contact</a></li>
@@ -72,10 +72,59 @@
 				</div>
 			</header>
 
+			<!-- Experience -->
+			<section class="section" id="experience">
+				<div class="section-heading" data-reveal>
+					<span class="index">01.</span>
+					<h2>Experience</h2>
+				</div>
+
+				<ol class="timeline">
+					<li data-reveal>
+						<div class="role-header">
+							<h3>Network Security Engineer</h3>
+							<span class="period">Jul 2024 &ndash; Jan 2025</span>
+						</div>
+						<p class="org">Casper Technologies Ltd &middot; Lagos, Nigeria</p>
+						<ul>
+							<li>Deployed and managed Sophos XG/XGS and FortiGate firewall environments across 10+ enterprise client networks in oil and gas, financial services, and telecoms; configured policy rules, NAT, IPS, web filtering, and application control</li>
+							<li>Executed XG to XGS firewall migrations using Sophos Migration Assistant, including firmware upgrades to SFOS v21.0, backup and restore with SSMK handling, and post-migration validation</li>
+							<li>Delivered a Sophos Intercept X Advanced pilot and full rollout via Microsoft Intune; managed a TrendMicro to Intercept X migration; configured Sophos Email Protection with Microsoft 365 mail flow rules</li>
+							<li>Managed P1&ndash;P4 incident response on Motadata ServiceOps ITSM; conducted Sophos SURF health checks covering ATP, ARP poisoning detection, and certificate management</li>
+							<li>Authored scopes of work, implementation plans, and technical reports to MD level; delivered cybersecurity awareness training to 200+ staff</li>
+						</ul>
+					</li>
+					<li data-reveal>
+						<div class="role-header">
+							<h3>Penetration Testing (Self-directed)</h3>
+							<span class="period">Sep 2023 &ndash; Jun 2024</span>
+						</div>
+						<p class="org">Home labs</p>
+						<ul>
+							<li>Completed PortSwigger Web Security Academy labs covering SQL injection, XSS, and authentication vulnerabilities</li>
+							<li>Built isolated test environments to practise reconnaissance, exploitation, and remediation validation</li>
+							<li>Developed Python tooling for vulnerability scanning and password breach checking</li>
+						</ul>
+					</li>
+					<li data-reveal>
+						<div class="role-header">
+							<h3>IT Support Engineer</h3>
+							<span class="period">Aug 2022 &ndash; Jul 2023</span>
+						</div>
+						<p class="org">Horty Benade Company &middot; Lagos, Nigeria</p>
+						<ul>
+							<li>Provided first and second-line support across Windows environments, troubleshooting hardware, network connectivity, and Active Directory user issues</li>
+							<li>Resolved endpoint security alerts and supported system patching processes</li>
+							<li>Documented recurring issues and created resolution guides to improve team response times</li>
+						</ul>
+					</li>
+				</ol>
+			</section>
+
 			<!-- Projects -->
 			<section class="section" id="projects">
 				<div class="section-heading" data-reveal>
-					<span class="index">01.</span>
+					<span class="index">02.</span>
 					<h2>Projects</h2>
 				</div>
 
@@ -84,10 +133,10 @@
 						<a class="card-media" href="{{ url_for('static', filename='images/projects/waf-headline-metrics.png') }}" target="_blank" rel="noopener" aria-label="View full-size chart">
 							<img src="{{ url_for('static', filename='images/projects/waf-headline-metrics.png') }}" alt="Bar chart comparing PL1 and PL2 headline metrics: TPR identical at 97.0%, FPR doubled from 1.0% to 2.0%" loading="lazy" width="1400" height="796" />
 						</a>
-						<p class="card-label">Featured &middot; MSc Dissertation</p>
+						<p class="card-label">Featured &middot; WAF Tuning</p>
 						<h3>WAF Paranoia Level Evaluation</h3>
 						<p class="metric">PL1 &rarr; PL2: detection unchanged (TPR 97.0%), false positives doubled (1.0% &rarr; 2.0%)</p>
-						<p>Empirical comparison of ModSecurity CRS 3.3.8 at Paranoia Level 1 vs PL2 against structured SQLi and XSS payloads in a Docker-based reverse-proxy testbed. Every observed difference traced back to threshold arithmetic rather than additional rule logic: a practical argument against blindly raising paranoia levels.</p>
+						<p>Tested ModSecurity CRS 3.3.8 at Paranoia Level 1 vs PL2 against structured SQLi and XSS payloads in a Docker-based reverse-proxy testbed. Every observed difference traced back to threshold arithmetic rather than additional rule logic: a practical argument against blindly raising paranoia levels in production. Built as my MSc dissertation (Distinction, 87.5%).</p>
 						<ul class="tags">
 							<li>ModSecurity</li><li>OWASP CRS</li><li>Docker</li><li>SQLi / XSS</li><li>Python</li>
 						</ul>
@@ -177,55 +226,6 @@
 						</div>
 					</article>
 				</div>
-			</section>
-
-			<!-- Experience -->
-			<section class="section" id="experience">
-				<div class="section-heading" data-reveal>
-					<span class="index">02.</span>
-					<h2>Experience</h2>
-				</div>
-
-				<ol class="timeline">
-					<li data-reveal>
-						<div class="role-header">
-							<h3>Network Security Engineer</h3>
-							<span class="period">Jul 2024 &ndash; Jan 2025</span>
-						</div>
-						<p class="org">Casper Technologies Ltd &middot; Lagos, Nigeria</p>
-						<ul>
-							<li>Deployed and managed Sophos XG/XGS and FortiGate firewall environments across 10+ enterprise client networks in oil and gas, financial services, and telecoms; configured policy rules, NAT, IPS, web filtering, and application control</li>
-							<li>Executed XG to XGS firewall migrations using Sophos Migration Assistant, including firmware upgrades to SFOS v21.0, backup and restore with SSMK handling, and post-migration validation</li>
-							<li>Delivered a Sophos Intercept X Advanced pilot and full rollout via Microsoft Intune; managed a TrendMicro to Intercept X migration; configured Sophos Email Protection with Microsoft 365 mail flow rules</li>
-							<li>Managed P1&ndash;P4 incident response on Motadata ServiceOps ITSM; conducted Sophos SURF health checks covering ATP, ARP poisoning detection, and certificate management</li>
-							<li>Authored scopes of work, implementation plans, and technical reports to MD level; delivered cybersecurity awareness training to 200+ staff</li>
-						</ul>
-					</li>
-					<li data-reveal>
-						<div class="role-header">
-							<h3>Penetration Testing (Self-directed)</h3>
-							<span class="period">Sep 2023 &ndash; Jun 2024</span>
-						</div>
-						<p class="org">Home labs</p>
-						<ul>
-							<li>Completed PortSwigger Web Security Academy labs covering SQL injection, XSS, and authentication vulnerabilities</li>
-							<li>Built isolated test environments to practise reconnaissance, exploitation, and remediation validation</li>
-							<li>Developed Python tooling for vulnerability scanning and password breach checking</li>
-						</ul>
-					</li>
-					<li data-reveal>
-						<div class="role-header">
-							<h3>IT Support Engineer</h3>
-							<span class="period">Aug 2022 &ndash; Jul 2023</span>
-						</div>
-						<p class="org">Horty Benade Company &middot; Lagos, Nigeria</p>
-						<ul>
-							<li>Provided first and second-line support across Windows environments, troubleshooting hardware, network connectivity, and Active Directory user issues</li>
-							<li>Resolved endpoint security alerts and supported system patching processes</li>
-							<li>Documented recurring issues and created resolution guides to improve team response times</li>
-						</ul>
-					</li>
-				</ol>
 			</section>
 
 			<!-- Skills -->
