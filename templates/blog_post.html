@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>{{ post.get('title', post.slug) }} &mdash; Bill Benson</title>
+		<title>{{ post.get('title', post.slug) }} - Bill Benson</title>
 		{% if post.get('description') %}<meta name="description" content="{{ post.description }}" />{% endif %}
 		<meta property="og:title" content="{{ post.get('title', post.slug) }}" />
 		{% if post.get('description') %}<meta property="og:description" content="{{ post.description }}" />{% endif %}
@@ -36,7 +36,7 @@
 				<h1>{{ post.get('title', post.slug) }}</h1>
 				<p class="post-meta">
 					{{ post.get('date_display', '') }}
-					{% if post.get('tags') %} &mdash; {{ post.tags }}{% endif %}
+					{% if post.get('tags') %} &middot; {{ post.tags }}{% endif %}
 				</p>
 			</header>
 

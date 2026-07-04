@@ -1,4 +1,4 @@
-# Bill Benson — Portfolio
+# Bill Benson - Portfolio
 
 Personal portfolio website built with Python and Flask, deployed on Render.
 
