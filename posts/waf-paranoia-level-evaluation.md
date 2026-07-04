@@ -53,11 +53,21 @@ All payloads came from publicly documented sources: PayloadsAllTheThings, the OW
 
 The headline: **identical detection, measurable false positive cost, and no latency penalty.**
 
+<figure>
+  <img src="/static/images/posts/waf-headline-metrics.png" alt="Bar chart of headline metrics for PL1 vs PL2: TPR identical at 97.0%, FPR doubled from 1.0% to 2.0%, precision, specificity, F1, and MCC all slightly worse under PL2" loading="lazy" />
+  <figcaption>TPR is identical across configurations. Every metric that incorporates false positives degrades under PL2.</figcaption>
+</figure>
+
 ## The Central Finding: No PL2 Rules Fired
 
 This is the mechanistic core of the dissertation, and it's more precise than just saying "TPR was the same."
 
 Across both configurations, 37 unique CRS rules fired. Every single one of them carried the `paranoia-level/1` tag. No rule tagged `paranoia-level/2`, `/3`, or `/4` fired in either the PL1 or the PL2 run.
+
+<figure>
+  <img src="/static/images/posts/waf-rule-frequency.png" alt="Horizontal bar chart of the top 15 CRS rules by fire count, led by rule 942100 SQL injection via libinjection at 97 fires, with all rules tagged paranoia-level/1" loading="lazy" />
+  <figcaption>Top 15 CRS rules by fire count. Every rule that fired carries the paranoia-level/1 tag, and fire counts are identical across both configurations.</figcaption>
+</figure>
 
 This has a direct consequence for how you interpret the results. The CRS blocking condition is:
 
@@ -68,6 +78,11 @@ If identical rules fire in both configurations, S is identical for every request
 PL2 loaded additional rules. Those rules were evaluated against every request. They simply never matched anything in this payload set.
 
 The implication: **the only operative difference between PL1 and PL2 in this experiment was the value of T.** Rule expansion did not contribute. This is the threshold-not-rules mechanism, and it directly explains why every metric that incorporates TPR shows no change, while every metric that incorporates FPR gets worse under PL2.
+
+<figure>
+  <img src="/static/images/posts/waf-anomaly-distribution.png" alt="Histogram of anomaly scores for all blocked requests, with dashed lines marking the PL1 threshold at 5 and the PL2 threshold at 3, and an orange bar of five requests sitting exactly at score 3" loading="lazy" />
+  <figcaption>Anomaly score distribution of all blocked requests. The orange bar at score 3 is the five PL2-exclusive false positives: blocked by PL2's threshold, allowed by PL1's, with identical rules firing in both.</figcaption>
+</figure>
 
 ## Where Detection Failed: The Six Bypasses
 
@@ -95,11 +110,21 @@ Rule 920220 carries the `paranoia-level/1` tag. It fired in both configurations.
 
 At subcategory level, the Special-Chars benign category (the percentage-string group) went from 0.00% FPR under PL1 to 7.04% FPR under PL2. The SQL-Keyword and Scripting-Keyword subcategories were identical across both configurations: their false positive scores already met the PL1 threshold, so the threshold reduction made no difference there. The Neutral subcategory (clean product descriptions) produced 0% FPR in both configurations.
 
+<figure>
+  <img src="/static/images/posts/waf-fp-subcategory.png" alt="Grouped bar chart of false positive rate by benign traffic subcategory, showing Special-Chars jumping from 0.00% under PL1 to 7.04% under PL2 while all other subcategories are unchanged" loading="lazy" />
+  <figcaption>False positive rate by benign subcategory. The entire PL1 to PL2 divergence sits in Special-Chars, driven by rule 920220 scoring exactly 3.</figcaption>
+</figure>
+
 ## Latency and Resource Usage
 
 H3 predicted PL2 would be slower due to evaluating more rules. It was slightly faster: PL1 averaged 46.66ms versus PL2's 41.93ms. The overlapping standard deviations (~19ms in both) make this directional difference meaningless. No significant CPU or memory difference was observed either.
 
 The likely explanation is that CRS rule evaluation is fast relative to other pipeline overhead, and at the sequential single-threaded traffic volume tested, the marginal cost of loading additional PL2 rules wasn't measurable.
+
+<figure>
+  <img src="/static/images/posts/waf-latency-boxplot.png" alt="Box plots of response latency for PL1 and PL2 across attack and benign traffic, with overlapping interquartile ranges in both traffic types" loading="lazy" />
+  <figcaption>Response latency distribution by configuration and traffic type. Overlapping interquartile ranges: the directional difference is not meaningful.</figcaption>
+</figure>
 
 ## What This Means in Practice
 

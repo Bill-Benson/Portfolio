@@ -46,6 +46,11 @@ The headline query is short, which is the point. Good detection logic should be 
 
 That `leftanti` join is doing the conceptual heavy lifting: it's set subtraction between "what happened" and "what the WAF noticed." Everything in the result is, by construction, something the firewall missed.
 
+<figure>
+  <img src="/static/images/projects/sentinel-bypass-query.png" alt="Microsoft Sentinel Logs blade running the leftanti bypass-detection query against WAFAccess_CL and WAFAudit_CL, with matching attack URIs listed in the results pane" loading="lazy" />
+  <figcaption>The full query in the Sentinel Logs blade. The results pane lists the attack-shaped URIs that returned HTTP 200 with no matching rule.</figcaption>
+</figure>
+
 ## What It Found
 
 The query surfaced a boolean-blind SQLi payload:
@@ -54,7 +59,12 @@ The query surfaced a boolean-blind SQLi payload:
 1 AND (SELECT CASE WHEN (1=1) THEN 1 ELSE 0 END)=1
 ```
 
-This is dissertation case **SQLI_33**. It returned HTTP 200 with **no matching rule at both Paranoia Level 1 and Level 2**, which is the interesting detail. A bypass that closes when you raise the paranoia level is a threshold problem; you were one notch too lenient. A bypass that survives *both* levels means the signature simply isn't there. No amount of turning the existing dials would have caught it. That lines up with the dissertation's broader finding that raising the paranoia level mostly reshuffles threshold arithmetic rather than adding genuinely new detection coverage.
+This is dissertation case **SQLI_33**. It returned HTTP 200 with **no matching rule at both Paranoia Level 1 and Level 2**, which is the interesting detail.
+
+<figure>
+  <img src="/static/images/posts/sentinel-bypass-paranoia-levels.png" alt="Sentinel query results projected with the ParanoiaLevel column, showing the same bypass URI present at both Paranoia Level 1 and Paranoia Level 2" loading="lazy" />
+  <figcaption>The bypass URI surfaces with ParanoiaLevel 1 and 2 in the same result set: the payload evaded both configurations.</figcaption>
+</figure> A bypass that closes when you raise the paranoia level is a threshold problem; you were one notch too lenient. A bypass that survives *both* levels means the signature simply isn't there. No amount of turning the existing dials would have caught it. That lines up with the dissertation's broader finding that raising the paranoia level mostly reshuffles threshold arithmetic rather than adding genuinely new detection coverage.
 
 The validation loop is what makes this satisfying: because I already knew from the dissertation that SQLI_33 was a real bypass, rediscovering it *purely from logs*, with no prior knowledge baked into the query, is evidence that the detection method works on ground truth, not just in theory.
 

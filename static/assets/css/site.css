@@ -1339,6 +1339,26 @@ a.cert-card:hover {
 	background: rgba(148, 163, 184, 0.03);
 }
 
+.post-content figure {
+	margin: 1.75rem 0;
+}
+
+.post-content img {
+	display: block;
+	max-width: 100%;
+	height: auto;
+	border: 1px solid var(--border);
+	border-radius: 8px;
+}
+
+.post-content figcaption {
+	font-family: var(--font-mono);
+	font-size: 0.78rem;
+	color: var(--faint);
+	line-height: 1.55;
+	margin-top: 0.6rem;
+}
+
 .post-content blockquote {
 	border-left: 3px solid var(--accent-border);
 	margin: 0 0 1.25rem;
