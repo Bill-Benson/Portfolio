@@ -81,6 +81,9 @@
 
 				<div class="featured-grid">
 					<article class="project-card" data-reveal>
+						<a class="card-media" href="{{ url_for('static', filename='images/projects/waf-headline-metrics.png') }}" target="_blank" rel="noopener" aria-label="View full-size chart">
+							<img src="{{ url_for('static', filename='images/projects/waf-headline-metrics.png') }}" alt="Bar chart comparing PL1 and PL2 headline metrics: TPR identical at 97.0%, FPR doubled from 1.0% to 2.0%" loading="lazy" width="1400" height="796" />
+						</a>
 						<p class="card-label">Featured &middot; MSc Dissertation</p>
 						<h3>WAF Paranoia Level Evaluation</h3>
 						<p class="metric">PL1 &rarr; PL2: detection unchanged (TPR 97.0%), false positives doubled (1.0% &rarr; 2.0%)</p>
@@ -95,6 +98,9 @@
 					</article>
 
 					<article class="project-card" data-reveal>
+						<a class="card-media" href="{{ url_for('static', filename='images/projects/sentinel-bypass-query.png') }}" target="_blank" rel="noopener" aria-label="View full-size screenshot">
+							<img src="{{ url_for('static', filename='images/projects/sentinel-bypass-query.png') }}" alt="Microsoft Sentinel Logs blade running the leftanti KQL bypass-detection query, with matching attack URIs in the results pane" loading="lazy" width="1400" height="659" />
+						</a>
 						<p class="card-label">Featured &middot; Detection Engineering</p>
 						<h3>WAF Bypass Detection in Microsoft Sentinel</h3>
 						<p class="metric">Rediscovered a boolean-blind SQLi bypass with a leftanti KQL join: HTTP 200, zero rule hits</p>
