@@ -1,32 +1,40 @@
 ---
 title: A Move to Wallasey, and What It Changes About My Job Search
 date: 2026-09-04
-description: I've relocated from Wrexham to Wallasey on the Wirral, right across the Mersey from Liverpool. A short, honest note on why, and what it does and doesn't change for a network security engineer currently job hunting.
+description: I've relocated from Wrexham to Wallasey on the Wirral, directly across the Mersey from Liverpool. A short, honest note on why, and what it does and doesn't change for a network security engineer currently job hunting.
 tags: Personal, Career, UK Job Search
 ---
 
-This week I moved from Wrexham to Wallasey, on the Wirral, just across the Mersey estuary from Liverpool. It's not a technical post, but it's a real update. My location is on this site and on my CV, so it felt worth a proper explanation, not just a silent edit to a field.
+This week I moved from Wrexham to Wallasey, on the Wirral, directly across the Mersey from Liverpool. It's not a technical post, but it is a real update. My location sits on this site and on my CV, and a silent edit to a field felt like the wrong way to handle it.
 
 ## Why leave Wrexham
 
-Wrexham is where I did my MSc in Cybersecurity, finished this year with a Distinction and an 88% dissertation mark. It was the right place for that: a good university, a manageable cost of living, and enough quiet to actually write 15,000 words of testbed methodology without much else pulling at my attention. My contract there ran out around the same time, and renewing it felt like the wrong default. Wrexham was really only ever tied to the course, so signing on for another year there didn't make much sense. Moving somewhere with a bigger security job market within reach did.
+Wrexham is where I did my MSc in Cybersecurity, finished this year with a Distinction and an 88% dissertation mark. It was the right place for that: a good university, a manageable cost of living, and enough quiet to write 15,000 words of testbed methodology without much else competing for attention.
+
+But I was only ever in Wrexham for the course. When my tenancy came up for renewal at the same time the degree finished, signing on for another year would have been a default, not a decision. The real question was where I could reach the most security employers, and the answer wasn't Wrexham.
 
 ## Why Wallasey
 
-Wallasey sits on the Wirral peninsula, on the opposite bank of the Mersey to Liverpool. It's a short ferry or train ride into Liverpool city centre, so Liverpool's job market is properly on my doorstep now, not a long drive away. Liverpool has a real cluster of financial services, logistics, and managed security providers, and being able to get to interviews or an office there without a multi-hour round trip matters practically, even if most of my work so far has been remote.
+Wallasey sits at the northern tip of the Wirral peninsula, on the opposite bank of the Mersey to Liverpool. Merseyrail runs under the river, so Liverpool city centre is around twenty minutes away by train, or a ferry ride if I'm not in a hurry. Liverpool has a genuine cluster of financial services, logistics, and managed service and security providers, and being able to get to an interview or an office there without a multi-hour round trip matters more than it sounds.
 
-It also widens my commuting range without pinning me to one city. Chester, Manchester, and the wider North West all become realistic in a way they weren't from Wrexham, which was well placed for North Wales but a longer haul in most other directions.
+It also widens the commutable range without tying me to one city. Chester is around forty minutes by car, Manchester is about an hour, and the wider North West opens up in a way it didn't from Wrexham, which was well placed for North Wales but a longer haul in most other directions.
 
 ## What actually changes
 
 For the job search, the honest answer is: less than you'd think, and more than nothing.
 
-Less, because I'm still open to remote and hybrid roles, and that hasn't changed at all. Most of my current work managing Sophos and Fortinet firewall estates across multiple client networks is already done remotely, and I'd expect any new role in that space to offer at least a hybrid pattern. The move doesn't signal a shift away from that.
+Less, because I'm still open to remote and hybrid roles, and nothing about that has shifted. My firewall work at Casper Technologies was on site and across client premises, so I'm comfortable in an office and in front of a customer's rack, but most network security roles today offer at least a hybrid pattern and I'm equally happy with that. The move isn't a signal that I want to be in an office five days a week, and it isn't a signal that I don't.
 
-More, because it removes a filter that recruiters and hiring managers apply without necessarily telling you: distance from the office. A role that specifies "hybrid, one or two days a week in Liverpool" was a harder sell from Wrexham than it is from Wallasey. Being able to say yes to that without a two-hour commute each way opens up postings I'd otherwise have had to pass on or negotiate around.
+More, because it removes a filter that recruiters and hiring managers apply without necessarily saying so: distance from the office. A posting that says "hybrid, one or two days a week in Liverpool" was a hard sell from Wrexham. From Wallasey it's a straightforward yes. That alone reopens a set of roles I'd previously have had to pass on or talk my way around.
+
+For anyone reading this from the hiring side, the practical version is:
+
+- Based in Wallasey, Wirral, with a car and a full UK driving licence
+- Happy on site anywhere across Liverpool, the Wirral, Chester, and Manchester, or fully remote
+- Available immediately, no notice period
 
 ## What stays the same
 
-The work itself hasn't moved. I'm still doing the same firewall estate management, still writing up detection engineering and WAF research on this blog, and still looking for a role that lets me do that security work properly, not as a side effect of general IT support. The MSc, the dissertation, the Sentinel detection lab, none of that changes because my postcode did.
+The work I'm looking for hasn't moved. I'm still after a network security, SOC, or detection engineering role where security is the job itself rather than an add-on, and I'm still writing up the WAF research and Sentinel detection work on this blog in the meantime. The MSc, the dissertation, the Sentinel lab: none of that changes because my postcode did.
 
-If anything, this is a small, practical adjustment, not a big turning point: closer to a bigger job market, still flexible on remote and hybrid, still doing the same work. I'll keep posting the technical write-ups here as usual. If you're hiring for network or detection engineering roles in or around Merseyside, or remotely, feel free to get in touch through the [contact form](/#contact).
+So this is a small, practical adjustment rather than a turning point. Closer to a bigger job market, still flexible on remote and hybrid, still chasing the same work. The technical write-ups will keep coming as usual. If you're hiring for network or detection engineering roles in or around Merseyside, or remotely, the [contact form](/#contact) is the quickest way to reach me.
