@@ -1,0 +1,81 @@
+[
+  {
+    "featured": true,
+    "title": "WAF Paranoia Level Evaluation",
+    "label": "Featured · WAF Tuning",
+    "image": "images/projects/waf-headline-metrics.png",
+    "image_alt": "Bar chart comparing PL1 and PL2 headline metrics: TPR identical at 97.0%, FPR doubled from 1.0% to 2.0%",
+    "image_width": 1400,
+    "image_height": 796,
+    "image_link_label": "View full-size chart",
+    "metric": "PL1 → PL2: detection unchanged (TPR 97.0%), false positives doubled (1.0% → 2.0%)",
+    "description": "Tested ModSecurity CRS 3.3.8 at Paranoia Level 1 vs PL2 against structured SQLi and XSS payloads in a Docker-based reverse-proxy testbed. Every observed difference traced back to threshold arithmetic rather than additional rule logic: a practical argument against blindly raising paranoia levels in production. Built as my MSc dissertation (Distinction).",
+    "tags": ["ModSecurity", "OWASP CRS", "Docker", "SQLi / XSS", "Python"],
+    "source": "https://github.com/Bill-Benson/Modsecurity-crs-paranoia-evaluation",
+    "writeup": "/blog/waf-paranoia-level-evaluation"
+  },
+  {
+    "featured": true,
+    "title": "WAF Bypass Detection in Microsoft Sentinel",
+    "label": "Featured · Detection Engineering",
+    "image": "images/projects/sentinel-bypass-query.png",
+    "image_alt": "Microsoft Sentinel Logs blade running the leftanti KQL bypass-detection query, with matching attack URIs in the results pane",
+    "image_width": 1400,
+    "image_height": 659,
+    "image_link_label": "View full-size screenshot",
+    "metric": "Rediscovered a boolean-blind SQLi bypass with a leftanti KQL join: HTTP 200, zero rule hits",
+    "description": "Detection lab that ingests ModSecurity and NGINX logs into Microsoft Sentinel via the Azure Monitor Logs Ingestion API and surfaces attacks the WAF let through. Built on a custom dual-table schema, Data Collection Rules, a scoped Entra app registration, and Python log parsing; validated against the dissertation dataset.",
+    "tags": ["Microsoft Sentinel", "KQL", "Azure Monitor", "Entra ID", "Python"],
+    "source": "https://github.com/Bill-Benson/sentinel-waf-detection",
+    "writeup": "/blog/waf-bypass-detection-sentinel"
+  },
+  {
+    "featured": false,
+    "title": "Malware Detection with ML",
+    "icon": "fas fa-bug",
+    "description": "Linear SVM vs LightGBM vs a PyTorch MLP for static PE malware classification on EMBER 2018. LightGBM led with F1 0.9474 and ROC AUC 0.9892; ranking stability verified across two stratified subsets.",
+    "tags": ["LightGBM", "PyTorch", "EMBER 2018"],
+    "source": "https://github.com/Bill-Benson/malware-detection-ml",
+    "writeup": "/blog/malware-detection-model-comparison"
+  },
+  {
+    "featured": false,
+    "title": "Heart Disease Classifier",
+    "icon": "fas fa-heartbeat",
+    "description": "Logistic regression, random forest, and XGBoost on the UCI Heart Disease dataset, evaluated with stratified 5-fold cross-validation, calibration curves, ROC analysis, and McNemar's testing.",
+    "tags": ["scikit-learn", "XGBoost", "Statistics"],
+    "source": "https://github.com/Bill-Benson/heart-disease-ml-classifier"
+  },
+  {
+    "featured": false,
+    "title": "Web App Security Scanner",
+    "icon": "fas fa-crosshairs",
+    "description": "Python scanner that enumerates links and forms on target web applications and tests for reflected XSS. Built and tested against Metasploitable in an isolated lab.",
+    "tags": ["Python", "XSS", "Recon"],
+    "source": "https://github.com/Bill-Benson/web-app-security-scanner"
+  },
+  {
+    "featured": false,
+    "title": "Password Breach Checker",
+    "icon": "fas fa-key",
+    "description": "Checks passwords against the Have I Been Pwned Pwned Passwords API using k-Anonymity, so no plaintext password ever leaves the machine.",
+    "tags": ["Python", "k-Anonymity", "HIBP API"],
+    "source": "https://github.com/Bill-Benson/pwned-password-checker"
+  },
+  {
+    "featured": false,
+    "title": "Hacker News Scraper",
+    "icon": "fas fa-newspaper",
+    "description": "Web scraper that extracts top-voted Hacker News stories, filters by vote threshold, and delivers a clean, ranked daily digest by email.",
+    "tags": ["Python", "Web scraping", "Email"],
+    "source": "https://github.com/Bill-Benson/scrape"
+  },
+  {
+    "featured": false,
+    "title": "This Portfolio",
+    "icon": "fas fa-code",
+    "description": "Flask backend with a markdown-powered blog engine, CSRF-protected contact form, and rate limiting. Deployed on Render.",
+    "tags": ["Flask", "Python", "Render"],
+    "source": "https://github.com/Bill-Benson/Portfolio"
+  }
+]

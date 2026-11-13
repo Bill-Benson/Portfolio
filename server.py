@@ -1,6 +1,7 @@
 import os
 import re
 import csv
+import json
 import smtplib
 from datetime import datetime
 from email.mime.text import MIMEText
@@ -10,6 +11,7 @@ from flask_wtf.csrf import CSRFProtect
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
 from dotenv import load_dotenv
+from markupsafe import Markup, escape
 import markdown2
 
 SLUG_RE = re.compile(r'^[a-z0-9-]+$')
@@ -24,6 +26,21 @@ limiter = Limiter(get_remote_address, app=app, default_limits=[])
 
 
 POSTS_DIR = os.path.join(os.path.dirname(__file__), 'posts')
+CONTENT_DIR = os.path.join(os.path.dirname(__file__), 'content')
+# Homepage sections, each stored as content/<name>.json.
+CONTENT_SECTIONS = ('profile', 'experience', 'projects', 'skills', 'certifications', 'about')
+
+
+def load_content(name):
+    with open(os.path.join(CONTENT_DIR, f'{name}.json'), encoding='utf-8') as f:
+        return json.load(f)
+
+
+@app.template_filter('inline_md')
+def inline_md(text):
+    # Content files hold plain text; the only markup allowed is **bold**.
+    # Escape first so nothing else in the text can reach the page as HTML.
+    return Markup(re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', str(escape(text))))
 
 
 def parse_post(filepath):
@@ -65,7 +82,8 @@ def load_posts():
 
 @app.route('/')
 def hello_world():
-    return render_template("index.html")
+    content = {name: load_content(name) for name in CONTENT_SECTIONS}
+    return render_template("index.html", **content)
 
 
 @app.route('/blog')

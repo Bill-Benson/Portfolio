@@ -1,0 +1,34 @@
+[
+  {
+    "title": "Network Security Engineer",
+    "period": "Jul 2024 – Jan 2025",
+    "org": "Casper Technologies Ltd · Lagos, Nigeria",
+    "bullets": [
+      "Deployed and managed Sophos XG/XGS and FortiGate firewall environments across 10+ enterprise client networks in oil and gas, financial services, and telecoms; configured policy rules, NAT, IPS, web filtering, and application control",
+      "Executed XG to XGS firewall migrations using Sophos Migration Assistant, including firmware upgrades to SFOS v21.0, backup and restore with SSMK handling, and post-migration validation",
+      "Delivered a Sophos Intercept X Advanced pilot and full rollout via Microsoft Intune; managed a TrendMicro to Intercept X migration; configured Sophos Email Protection with Microsoft 365 mail flow rules",
+      "Managed P1–P4 incident response on Motadata ServiceOps ITSM; conducted Sophos SURF health checks covering ATP, ARP poisoning detection, and certificate management",
+      "Authored scopes of work, implementation plans, and technical reports to MD level; delivered cybersecurity awareness training to 200+ staff"
+    ]
+  },
+  {
+    "title": "Penetration Testing (Self-directed)",
+    "period": "Sep 2023 – Jun 2024",
+    "org": "Home labs",
+    "bullets": [
+      "Completed PortSwigger Web Security Academy labs covering SQL injection, XSS, and authentication vulnerabilities",
+      "Built isolated test environments to practise reconnaissance, exploitation, and remediation validation",
+      "Developed Python tooling for vulnerability scanning and password breach checking"
+    ]
+  },
+  {
+    "title": "IT Support Engineer",
+    "period": "Aug 2022 – Jul 2023",
+    "org": "Horty Benade Company · Lagos, Nigeria",
+    "bullets": [
+      "Provided first and second-line support across Windows environments, troubleshooting hardware, network connectivity, and Active Directory user issues",
+      "Resolved endpoint security alerts and supported system patching processes",
+      "Documented recurring issues and created resolution guides to improve team response times"
+    ]
+  }
+]

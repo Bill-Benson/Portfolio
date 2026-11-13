@@ -1,0 +1,29 @@
+[
+  {
+    "name": "CompTIA Security+ CE",
+    "issuer": "CompTIA",
+    "icon": "fas fa-shield-alt",
+    "url": "https://www.credly.com/badges/accff0a2-b645-4686-906d-ab0728972bd5/"
+  },
+  {
+    "name": "Certified in Cybersecurity (CC)",
+    "issuer": "ISC2",
+    "icon": "fas fa-certificate"
+  },
+  {
+    "name": "Sophos Firewall Certified Engineer v20.0",
+    "issuer": "Sophos",
+    "icon": "fas fa-network-wired"
+  },
+  {
+    "name": "Central Endpoint Protection Certified Engineer v5.0",
+    "issuer": "Sophos",
+    "icon": "fas fa-shield-alt"
+  },
+  {
+    "name": "Google Cybersecurity Professional Certificate",
+    "issuer": "Google · Coursera",
+    "icon": "fas fa-graduation-cap",
+    "url": "https://www.coursera.org/account/accomplishments/professional-cert/2XFY2LSHQFYY"
+  }
+]

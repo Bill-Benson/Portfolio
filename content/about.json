@@ -1,0 +1,19 @@
+{
+  "paragraphs": [
+    "I started out in IT support in Lagos, troubleshooting Windows estates and Active Directory, then moved into network security engineering, deploying and managing **Sophos and Fortinet environments for enterprise clients** in financial services, oil and gas, and telecoms.",
+    "In 2026 I completed an **MSc in Cybersecurity at Wrexham University with Distinction**. My dissertation put ModSecurity WAF rulesets under empirical test in a Docker-based reverse-proxy testbed, and I've since extended that work into detection engineering with Microsoft Sentinel. Alongside the degree I've worked through PortSwigger's Web Security Academy and built ML-based malware detection models.",
+    "I'm **available immediately** for network security, security operations, and junior security roles across the UK: on-site, hybrid, or remote.",
+    "Away from the keyboard: gaming, basketball, and chess."
+  ],
+  "education": [
+    {
+      "title": "MSc Cybersecurity",
+      "org": "Wrexham University, UK · 2026",
+      "note": "Distinction · 88% dissertation"
+    },
+    {
+      "title": "BSc Computer Science",
+      "org": "University of Ibadan, Nigeria"
+    }
+  ]
+}
