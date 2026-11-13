@@ -1,9 +1,29 @@
 {% extends "admin/base.html" %}
-{% block title %}Dashboard{% endblock %}
+{% block title %}Posts{% endblock %}
 {% block content %}
 			<header class="blog-header">
-				<span class="hero-kicker">~# dashboard</span>
-				<h1>Admin</h1>
-				<p>You're logged in. The editors for posts and homepage content will appear here.</p>
+				<span class="hero-kicker">~# posts</span>
+				<h1>Posts</h1>
+				{% if github_repo %}
+				<p>Changes are committed to {{ github_repo }} on GitHub.</p>
+				{% else %}
+				<p>No GitHub token is set, so changes are saved on this machine only.</p>
+				{% endif %}
 			</header>
+
+			<p><a class="btn btn-primary" href="{{ url_for('admin.post_new') }}"><span class="fas fa-plus" aria-hidden="true"></span> New post</a></p>
+
+			{% if posts %}
+			<ul class="admin-list">
+				{% for post in posts %}
+				<li>
+					<a class="admin-list-title" href="{{ url_for('admin.post_edit', slug=post.slug) }}">{{ post.get('title', post.slug) }}</a>
+					<span class="post-meta">{{ post.get('date_display', '') }}{% if post.is_draft %} &middot; <span class="draft-badge">draft</span>{% endif %}</span>
+					<a class="admin-list-view" href="/blog/{{ post.slug }}" target="_blank" rel="noopener">view</a>
+				</li>
+				{% endfor %}
+			</ul>
+			{% else %}
+			<p class="no-posts">No posts yet.</p>
+			{% endif %}
 {% endblock %}

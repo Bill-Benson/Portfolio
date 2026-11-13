@@ -1,20 +1,17 @@
 import os
 import re
 import csv
-import json
 import smtplib
-from datetime import datetime, timedelta
+from datetime import timedelta
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from flask import Flask, render_template, request, abort
 from dotenv import load_dotenv
 from markupsafe import Markup, escape
-import markdown2
 
 from extensions import csrf, limiter
-from admin import bp as admin_bp
-
-SLUG_RE = re.compile(r'^[a-z0-9-]+$')
+from admin import bp as admin_bp, is_admin
+from content import CONTENT_SECTIONS, SLUG_RE, load_content, load_posts, parse_post, post_path
 
 load_dotenv()
 
@@ -35,59 +32,11 @@ limiter.init_app(app)
 app.register_blueprint(admin_bp)
 
 
-POSTS_DIR = os.path.join(os.path.dirname(__file__), 'posts')
-CONTENT_DIR = os.path.join(os.path.dirname(__file__), 'content')
-# Homepage sections, each stored as content/<name>.json.
-CONTENT_SECTIONS = ('profile', 'experience', 'projects', 'skills', 'certifications', 'about')
-
-
-def load_content(name):
-    with open(os.path.join(CONTENT_DIR, f'{name}.json'), encoding='utf-8') as f:
-        return json.load(f)
-
-
 @app.template_filter('inline_md')
 def inline_md(text):
     # Content files hold plain text; the only markup allowed is **bold**.
     # Escape first so nothing else in the text can reach the page as HTML.
     return Markup(re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', str(escape(text))))
-
-
-def parse_post(filepath):
-    with open(filepath, encoding='utf-8') as f:
-        content = f.read()
-    meta = {}
-    body = content
-    if content.startswith('---'):
-        parts = content.split('---', 2)
-        if len(parts) == 3:
-            for line in parts[1].strip().splitlines():
-                key, _, value = line.partition(': ')
-                meta[key.strip()] = value.strip()
-            body = parts[2]
-    # 'date' is stored as ISO (YYYY-MM-DD) for reliable sorting; expose a
-    # human-readable 'date_display' for templates.
-    iso = meta.get('date', '')
-    try:
-        meta['date_display'] = datetime.strptime(iso, '%Y-%m-%d').strftime('%d %B %Y').lstrip('0')
-    except ValueError:
-        meta['date_display'] = iso
-    meta['html'] = markdown2.markdown(body, extras=['fenced-code-blocks', 'tables', 'strike'])
-    return meta
-
-
-def load_posts():
-    posts = []
-    if not os.path.isdir(POSTS_DIR):
-        return posts
-    for filename in os.listdir(POSTS_DIR):
-        if filename.endswith('.md'):
-            meta = parse_post(os.path.join(POSTS_DIR, filename))
-            meta['slug'] = filename[:-3]
-            posts.append(meta)
-    # Newest first, ordered by the ISO date field rather than filename.
-    posts.sort(key=lambda p: p.get('date', ''), reverse=True)
-    return posts
 
 
 @app.route('/')
@@ -107,10 +56,13 @@ def blog_index():
 def blog_post(slug):
     if not SLUG_RE.match(slug):
         abort(404)
-    filepath = os.path.join(POSTS_DIR, f'{slug}.md')
+    filepath = post_path(slug)
     if not os.path.isfile(filepath):
         abort(404)
     meta = parse_post(filepath)
+    # Drafts exist only for the logged-in admin, as a preview.
+    if meta['is_draft'] and not is_admin():
+        abort(404)
     meta['slug'] = slug
     return render_template("blog_post.html", post=meta)
 

@@ -24,8 +24,12 @@
 			</div>
 		</nav>
 
-		<main id="main" class="blog-main">
+		<main id="main" class="blog-main {% block main_class %}{% endblock %}">
+			{% for message in get_flashed_messages() %}
+			<p class="form-notice" role="status">{{ message }}</p>
+			{% endfor %}
 			{% block content %}{% endblock %}
 		</main>
+		{% block scripts %}{% endblock %}
 	</body>
 </html>

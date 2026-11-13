@@ -1,0 +1,69 @@
+{% extends "admin/base.html" %}
+{% block title %}{{ 'New post' if new else form.title }}{% endblock %}
+{% block main_class %}admin-wide{% endblock %}
+{% block content %}
+			<header class="blog-header">
+				<a href="{{ url_for('admin.dashboard') }}" class="back-link">&larr; All posts</a>
+				<h1>{{ 'New post' if new else 'Edit post' }}</h1>
+				{% if not new %}
+				<p><a href="/blog/{{ form.slug }}" target="_blank" rel="noopener">/blog/{{ form.slug }}</a></p>
+				{% endif %}
+			</header>
+
+			<form class="contact-form admin-form" method="post" id="post-form" data-preview-url="{{ url_for('admin.preview') }}">
+				<input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+				{% for error in errors %}
+				<p class="form-error" role="alert">{{ error }}</p>
+				{% endfor %}
+
+				<div class="field">
+					<label for="title">title</label>
+					<input type="text" name="title" id="title" maxlength="200" value="{{ form.title }}" required />
+				</div>
+				<div class="field-row">
+					<div class="field">
+						<label for="slug">url name{% if new %} (blank = from the title){% endif %}</label>
+						<input type="text" name="slug" id="slug" maxlength="80" pattern="[a-z0-9-]+" value="{{ form.slug }}" {% if not new %}readonly{% endif %} />
+					</div>
+					<div class="field">
+						<label for="date">date</label>
+						<input type="date" name="date" id="date" value="{{ form.date }}" required />
+					</div>
+				</div>
+				<div class="field">
+					<label for="description">description (shown on the blog index and in search results)</label>
+					<input type="text" name="description" id="description" maxlength="500" value="{{ form.description }}" />
+				</div>
+				<div class="field">
+					<label for="tags">tags (comma separated)</label>
+					<input type="text" name="tags" id="tags" maxlength="200" value="{{ form.tags }}" />
+				</div>
+				<label class="check">
+					<input type="checkbox" name="draft" value="1" {% if form.draft %}checked{% endif %} />
+					Draft: only visible to you while logged in
+				</label>
+
+				<div class="editor-grid">
+					<div class="field">
+						<label for="body">body (markdown)</label>
+						<textarea name="body" id="body" rows="26" spellcheck="true" required>{{ form.body }}</textarea>
+					</div>
+					<div class="field">
+						<span class="preview-label">preview</span>
+						<article class="post-content admin-preview" id="preview">{{ preview_html | safe }}</article>
+					</div>
+				</div>
+
+				<button type="submit" class="btn btn-primary">{{ 'Create post' if new else 'Save changes' }}</button>
+			</form>
+
+			{% if not new %}
+			<form class="admin-delete" method="post" action="{{ url_for('admin.post_delete', slug=form.slug) }}" onsubmit="return confirm('Delete this post? This cannot be undone from the admin.');">
+				<input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+				<button type="submit" class="btn btn-ghost btn-danger">Delete post</button>
+			</form>
+			{% endif %}
+{% endblock %}
+{% block scripts %}
+		<script src="{{ url_for('static', filename='assets/js/admin.js') }}"></script>
+{% endblock %}

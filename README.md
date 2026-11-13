@@ -59,3 +59,17 @@ The app will be available at `http://127.0.0.1:5000`.
 3. Add the setup key it prints to an authenticator app.
 
 Login attempts are rate limited to 5 per 15 minutes, a code can only be used once, and a session ends after 30 minutes idle or 8 hours in total.
+
+## Editing content from the admin
+
+The admin can create, edit and delete blog posts, with a live markdown preview. A post marked as a draft is only visible to the logged-in admin.
+
+Render's disk is wiped on every deploy, so the admin doesn't save to it. Each save is committed to this repository through the GitHub API, and Render redeploys from that commit. This needs two more variables on Render:
+
+| Variable | Description |
+|---|---|
+| `GITHUB_TOKEN` | Fine-grained personal access token for this repository only, with read and write access to Contents |
+| `GITHUB_REPO` | `owner/name` of this repository |
+| `GITHUB_BRANCH` | Branch to commit to (optional, defaults to `main`) |
+
+Without a token, saves are written to the local disk only, which is what you want when running locally. On Render, saving without a token is refused.
