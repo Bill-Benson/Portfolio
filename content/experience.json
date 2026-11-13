@@ -4,11 +4,11 @@
     "period": "Jul 2024 – Jan 2025",
     "org": "Casper Technologies Ltd · Lagos, Nigeria",
     "bullets": [
-      "Deployed and managed Sophos XG/XGS and FortiGate firewall environments across 10+ enterprise client networks in oil and gas, financial services, and telecoms; configured policy rules, NAT, IPS, web filtering, and application control",
-      "Executed XG to XGS firewall migrations using Sophos Migration Assistant, including firmware upgrades to SFOS v21.0, backup and restore with SSMK handling, and post-migration validation",
-      "Delivered a Sophos Intercept X Advanced pilot and full rollout via Microsoft Intune; managed a TrendMicro to Intercept X migration; configured Sophos Email Protection with Microsoft 365 mail flow rules",
-      "Managed P1–P4 incident response on Motadata ServiceOps ITSM; conducted Sophos SURF health checks covering ATP, ARP poisoning detection, and certificate management",
-      "Authored scopes of work, implementation plans, and technical reports to MD level; delivered cybersecurity awareness training to 200+ staff"
+      "Installed, configured and managed Sophos XG/XGS and FortiGate firewalls for client networks across oil and gas, financial services and telecoms, including policy rules, NAT, IPS, web filtering and application control",
+      "Carried out Sophos XG to XGS migrations using Sophos Migration Assistant, including firmware upgrades to SFOS v21.0, backup and restore with SSMK handling, and post-migration testing of policies, VPNs and VLANs",
+      "Rolled out Sophos Intercept X Advanced via Microsoft Intune from pilot to full deployment, migrated endpoints from Trend Micro, and supported configuration of Sophos Email Protection with Microsoft 365 mail flow rules for a 17-company group (136 mailboxes)",
+      "Provided first-level support on a client's Motadata ServiceOps ITSM platform under P1 to P4 priorities, and ran Sophos health checks across 8 customer engagements covering ATP, ARP poisoning detection and certificate management",
+      "Investigated unauthorised VPN access, supported a client through VAPT remediation, wrote scopes of work, implementation plans and reports to MD level, and delivered cybersecurity awareness training to 200+ client staff"
     ]
   },
   {

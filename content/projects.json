@@ -72,6 +72,20 @@
   },
   {
     "featured": false,
+    "title": "ML Security Experiments",
+    "icon": "fas fa-flask",
+    "description": "Self-directed experiments. Prompt-injection detection: TF-IDF classifiers hit 0.95+ accuracy within one dataset but dropped to 0.61–0.72 on another, while sentence-transformer embeddings transferred better. IoT intrusion detection on CIC IoT: LightGBM macro-F1 0.88, explained with SHAP.",
+    "tags": ["Prompt injection", "LightGBM", "SHAP"]
+  },
+  {
+    "featured": false,
+    "title": "IT Service Desk Lab",
+    "icon": "fas fa-headset",
+    "description": "iTop ITSM ticketing deployed in Docker, plus a Microsoft Intune lab tenant with an Android phone enrolled under an Android Enterprise work profile.",
+    "tags": ["iTop", "Docker", "Intune"]
+  },
+  {
+    "featured": false,
     "title": "This Portfolio",
     "icon": "fas fa-code",
     "description": "Flask backend with a markdown-powered blog engine, CSRF-protected contact form, and rate limiting. Deployed on Render.",

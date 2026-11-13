@@ -7,11 +7,11 @@
   {
     "name": "Endpoint & Identity",
     "icon": "fas fa-shield-alt",
-    "items": ["Sophos Intercept X", "Microsoft Intune", "Email protection / M365", "Active Directory", "System patching", "1st & 2nd line support"]
+    "items": ["Sophos Intercept X", "Microsoft Intune", "Intune device enrolment (Android Enterprise)", "Sophos Email Protection / M365 mail flow", "Active Directory", "System patching", "1st & 2nd line support"]
   },
   {
     "name": "Testing & Tooling",
     "icon": "fas fa-terminal",
-    "items": ["Python scripting", "Microsoft Sentinel / KQL", "Docker", "Web app testing", "PortSwigger Academy", "Windows & Linux"]
+    "items": ["Python scripting", "Microsoft Sentinel / KQL", "Docker", "Web app testing", "PortSwigger Academy", "Windows & Linux", "iTop ITSM (lab)"]
   }
 ]

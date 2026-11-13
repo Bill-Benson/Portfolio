@@ -83,7 +83,8 @@ def load_posts():
 @app.route('/')
 def hello_world():
     content = {name: load_content(name) for name in CONTENT_SECTIONS}
-    return render_template("index.html", **content)
+    posts = load_posts()
+    return render_template("index.html", latest_post=posts[0] if posts else None, **content)
 
 
 @app.route('/blog')

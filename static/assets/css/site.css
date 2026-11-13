@@ -413,6 +413,21 @@ html.js [data-reveal].revealed {
 	margin-bottom: 2rem;
 }
 
+.latest-post {
+	margin: 0;
+	font-family: var(--font-mono);
+	font-size: 0.8rem;
+	color: var(--muted);
+}
+
+.latest-post a {
+	color: var(--accent-strong);
+}
+
+.latest-post a:hover {
+	text-decoration: underline;
+}
+
 .btn {
 	display: inline-flex;
 	align-items: center;

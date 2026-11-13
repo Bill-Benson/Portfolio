@@ -52,6 +52,9 @@
 								<li><a href="{{ profile.cv }}" target="_blank" rel="noopener" aria-label="Resume"><span class="fas fa-file-alt" aria-hidden="true"></span></a></li>
 							</ul>
 						</div>
+						{% if latest_post %}
+						<p class="latest-post">latest post: <a href="/blog/{{ latest_post.slug }}">{{ latest_post.get('title', latest_post.slug) }} &rarr;</a></p>
+						{% endif %}
 					</div>
 					<div class="terminal" aria-hidden="true">
 						<div class="terminal-bar">
@@ -134,12 +137,16 @@
 						<h3>{{ project.title }}</h3>
 						<p>{{ project.description }}</p>
 						<ul class="tags">{% for tag in project.tags %}<li>{{ tag }}</li>{% endfor %}</ul>
+						{% if project.source or project.writeup %}
 						<div class="card-links">
+							{% if project.source %}
 							<a href="{{ project.source }}" target="_blank" rel="noopener"><span class="fab fa-github" aria-hidden="true"></span>Source</a>
+							{% endif %}
 							{% if project.writeup %}
 							<a href="{{ project.writeup }}"><span class="fas fa-arrow-right" aria-hidden="true"></span>Write-up</a>
 							{% endif %}
 						</div>
+						{% endif %}
 					</article>
 					{% endfor %}
 				</div>
@@ -234,7 +241,7 @@
 						<p>{{ profile.contact_intro|inline_md }}</p>
 						<ul class="contact-methods">
 							<li><a href="mailto:{{ profile.email }}?subject=Portfolio%20Inquiry"><span class="fas fa-envelope" aria-hidden="true"></span> {{ profile.email }}</a></li>
-							<li><a href="{{ profile.linkedin }}" target="_blank" rel="noopener"><span class="fab fa-linkedin-in" aria-hidden="true"></span> linkedin.com/in/bill-benson</a></li>
+							<li><a href="{{ profile.linkedin }}" target="_blank" rel="noopener"><span class="fab fa-linkedin-in" aria-hidden="true"></span> linkedin.com/in/bill-benson-cyber</a></li>
 							<li><a href="{{ profile.github }}" target="_blank" rel="noopener"><span class="fab fa-github" aria-hidden="true"></span> github.com/Bill-Benson</a></li>
 							<li><a href="{{ profile.cv }}" target="_blank" rel="noopener"><span class="fas fa-file-alt" aria-hidden="true"></span> Download my CV</a></li>
 						</ul>
