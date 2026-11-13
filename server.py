@@ -3,16 +3,16 @@ import re
 import csv
 import json
 import smtplib
-from datetime import datetime
+from datetime import datetime, timedelta
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from flask import Flask, render_template, request, abort
-from flask_wtf.csrf import CSRFProtect
-from flask_limiter import Limiter
-from flask_limiter.util import get_remote_address
 from dotenv import load_dotenv
 from markupsafe import Markup, escape
 import markdown2
+
+from extensions import csrf, limiter
+from admin import bp as admin_bp
 
 SLUG_RE = re.compile(r'^[a-z0-9-]+$')
 
@@ -20,9 +20,19 @@ load_dotenv()
 
 app = Flask(__name__, static_folder='static')
 app.config['SECRET_KEY'] = os.environ['SECRET_KEY']
+app.config.update(
+    # Render sets RENDER=true; locally the site runs over plain http, where a
+    # Secure cookie would never be sent back.
+    SESSION_COOKIE_SECURE=bool(os.environ.get('RENDER')),
+    SESSION_COOKIE_HTTPONLY=True,
+    SESSION_COOKIE_SAMESITE='Lax',
+    # Idle timeout for the admin session.
+    PERMANENT_SESSION_LIFETIME=timedelta(minutes=30),
+)
 
-csrf = CSRFProtect(app)
-limiter = Limiter(get_remote_address, app=app, default_limits=[])
+csrf.init_app(app)
+limiter.init_app(app)
+app.register_blueprint(admin_bp)
 
 
 POSTS_DIR = os.path.join(os.path.dirname(__file__), 'posts')

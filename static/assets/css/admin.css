@@ -1,0 +1,33 @@
+/*
+	Admin-only styles. Loaded after site.css, which provides the variables
+	and the shared nav, button and form styles.
+*/
+
+.admin-logout {
+	display: flex;
+	align-items: center;
+	gap: 1.25rem;
+	font-size: 0.9rem;
+}
+
+.admin-logout a {
+	color: var(--muted);
+}
+
+.admin-logout a:hover {
+	color: var(--accent);
+}
+
+.admin-login {
+	max-width: 24rem;
+}
+
+.form-error {
+	margin: 0 0 1.1rem;
+	padding: 0.7rem 0.9rem;
+	border: 1px solid rgba(248, 113, 113, 0.4);
+	border-radius: 8px;
+	background: rgba(248, 113, 113, 0.08);
+	color: #fca5a5;
+	font-size: 0.9rem;
+}

@@ -1,0 +1,24 @@
+{% extends "admin/base.html" %}
+{% block title %}Log in{% endblock %}
+{% block content %}
+			<header class="blog-header">
+				<span class="hero-kicker">~# login</span>
+				<h1>Admin</h1>
+			</header>
+
+			<form class="contact-form admin-login" method="post" action="{{ url_for('admin.login') }}">
+				<input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+				{% if error %}
+				<p class="form-error" role="alert">{{ error }}</p>
+				{% endif %}
+				<div class="field">
+					<label for="password">password</label>
+					<input type="password" name="password" id="password" maxlength="256" autocomplete="current-password" required autofocus />
+				</div>
+				<div class="field">
+					<label for="code">authenticator code</label>
+					<input type="text" name="code" id="code" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" autocomplete="one-time-code" required />
+				</div>
+				<button type="submit" class="btn btn-primary">Log in <span class="fas fa-arrow-right" aria-hidden="true"></span></button>
+			</form>
+{% endblock %}
