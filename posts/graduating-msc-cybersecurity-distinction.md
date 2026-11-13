@@ -8,7 +8,7 @@ tags: Personal, Research, WAF
 On Wednesday 28 October 2026 I walked across the stage at Wrexham University and graduated with an MSc in Cybersecurity, with Distinction. This isn't a write-up of a single build like most posts here. It's a look back at the course (January 2025 to April 2026), the two pieces of work I'm proudest of, and the people who made it possible. The code for both is on GitHub: the [dissertation testbed](https://github.com/Bill-Benson/Modsecurity-crs-paranoia-evaluation) and the [Sentinel detection project](https://github.com/Bill-Benson/sentinel-waf-detection).
 
 <figure>
-  <img src="/static/images/posts/graduation-gown.jpg" alt="Bill Benson in graduation gown and cap in front of the Wrexham University backdrop on graduation day" loading="lazy" />
+  <img src="/static/images/posts/graduation-gown.jpg" style="max-width:480px;width:100%;margin:0 auto;display:block" alt="Bill Benson in graduation gown and cap in front of the Wrexham University backdrop on graduation day" loading="lazy" />
   <figcaption>Graduation day at Wrexham University, 28 October 2026.</figcaption>
 </figure>
 
