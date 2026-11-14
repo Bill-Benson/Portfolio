@@ -11,6 +11,7 @@ from markupsafe import Markup, escape
 
 from extensions import csrf, limiter
 from admin import bp as admin_bp, is_admin
+import admin_content  # adds the homepage editor routes to the admin blueprint
 from content import CONTENT_SECTIONS, SLUG_RE, load_content, load_posts, parse_post, post_path
 
 load_dotenv()

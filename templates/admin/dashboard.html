@@ -1,9 +1,9 @@
 {% extends "admin/base.html" %}
-{% block title %}Posts{% endblock %}
+{% block title %}Dashboard{% endblock %}
 {% block content %}
 			<header class="blog-header">
-				<span class="hero-kicker">~# posts</span>
-				<h1>Posts</h1>
+				<span class="hero-kicker">~# dashboard</span>
+				<h1>Admin</h1>
 				{% if github_repo %}
 				<p>Changes are committed to {{ github_repo }} on GitHub.</p>
 				{% else %}
@@ -11,19 +11,36 @@
 				{% endif %}
 			</header>
 
-			<p><a class="btn btn-primary" href="{{ url_for('admin.post_new') }}"><span class="fas fa-plus" aria-hidden="true"></span> New post</a></p>
+			<section class="admin-section">
+				<div class="admin-section-heading">
+					<h2>Posts</h2>
+					<a class="btn btn-primary" href="{{ url_for('admin.post_new') }}"><span class="fas fa-plus" aria-hidden="true"></span> New post</a>
+				</div>
+				{% if posts %}
+				<ul class="admin-list">
+					{% for post in posts %}
+					<li>
+						<a class="admin-list-title" href="{{ url_for('admin.post_edit', slug=post.slug) }}">{{ post.get('title', post.slug) }}</a>
+						<span class="post-meta">{{ post.get('date_display', '') }}{% if post.is_draft %} &middot; <span class="draft-badge">draft</span>{% endif %}</span>
+						<a class="admin-list-view" href="/blog/{{ post.slug }}" target="_blank" rel="noopener">view</a>
+					</li>
+					{% endfor %}
+				</ul>
+				{% else %}
+				<p class="no-posts">No posts yet.</p>
+				{% endif %}
+			</section>
 
-			{% if posts %}
-			<ul class="admin-list">
-				{% for post in posts %}
-				<li>
-					<a class="admin-list-title" href="{{ url_for('admin.post_edit', slug=post.slug) }}">{{ post.get('title', post.slug) }}</a>
-					<span class="post-meta">{{ post.get('date_display', '') }}{% if post.is_draft %} &middot; <span class="draft-badge">draft</span>{% endif %}</span>
-					<a class="admin-list-view" href="/blog/{{ post.slug }}" target="_blank" rel="noopener">view</a>
-				</li>
-				{% endfor %}
-			</ul>
-			{% else %}
-			<p class="no-posts">No posts yet.</p>
-			{% endif %}
+			<section class="admin-section">
+				<div class="admin-section-heading">
+					<h2>Homepage</h2>
+				</div>
+				<ul class="admin-list">
+					{% for name, title in homepage_sections %}
+					<li>
+						<a class="admin-list-title" href="{{ url_for('admin.content_edit', name=name) }}">{{ title }}</a>
+					</li>
+					{% endfor %}
+				</ul>
+			</section>
 {% endblock %}

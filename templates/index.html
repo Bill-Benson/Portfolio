@@ -241,8 +241,8 @@
 						<p>{{ profile.contact_intro|inline_md }}</p>
 						<ul class="contact-methods">
 							<li><a href="mailto:{{ profile.email }}?subject=Portfolio%20Inquiry"><span class="fas fa-envelope" aria-hidden="true"></span> {{ profile.email }}</a></li>
-							<li><a href="{{ profile.linkedin }}" target="_blank" rel="noopener"><span class="fab fa-linkedin-in" aria-hidden="true"></span> linkedin.com/in/bill-benson-cyber</a></li>
-							<li><a href="{{ profile.github }}" target="_blank" rel="noopener"><span class="fab fa-github" aria-hidden="true"></span> github.com/Bill-Benson</a></li>
+							<li><a href="{{ profile.linkedin }}" target="_blank" rel="noopener"><span class="fab fa-linkedin-in" aria-hidden="true"></span> {{ profile.linkedin | replace('https://www.', '') | replace('https://', '') }}</a></li>
+							<li><a href="{{ profile.github }}" target="_blank" rel="noopener"><span class="fab fa-github" aria-hidden="true"></span> {{ profile.github | replace('https://www.', '') | replace('https://', '') }}</a></li>
 							<li><a href="{{ profile.cv }}" target="_blank" rel="noopener"><span class="fas fa-file-alt" aria-hidden="true"></span> Download my CV</a></li>
 						</ul>
 					</div>

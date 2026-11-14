@@ -1,0 +1,73 @@
+{% extends "admin/base.html" %}
+{% block title %}{{ section.title }}{% endblock %}
+
+{% macro render_field(prefix, spec, value) %}
+					<div class="field">
+						{% if spec.kind == 'bool' %}
+						<label class="check">
+							<input type="checkbox" name="{{ prefix }}{{ spec.name }}" value="1" {% if value %}checked{% endif %} />
+							{{ spec.label }}
+						</label>
+						{% else %}
+						<label for="{{ prefix }}{{ spec.name }}">{{ spec.label }}{% if spec.help %} ({{ spec.help }}){% endif %}</label>
+						{% if spec.kind in ('textarea', 'lines', 'paragraphs') %}
+						<textarea name="{{ prefix }}{{ spec.name }}" id="{{ prefix }}{{ spec.name }}" rows="{{ 12 if spec.kind == 'paragraphs' else 5 }}">{{ value }}</textarea>
+						{% else %}
+						<input type="text" name="{{ prefix }}{{ spec.name }}" id="{{ prefix }}{{ spec.name }}" value="{{ value }}" {% if spec.kind == 'int' %}inputmode="numeric"{% endif %} />
+						{% endif %}
+						{% endif %}
+					</div>
+{% endmacro %}
+
+{% block content %}
+			<header class="blog-header">
+				<a href="{{ url_for('admin.dashboard') }}" class="back-link">&larr; Dashboard</a>
+				<h1>{{ section.title }}</h1>
+				{% if section.list %}
+				<p>Open an entry to edit it. To reorder, change the position numbers. Everything is saved together when you click Save.</p>
+				{% endif %}
+			</header>
+
+			<form class="contact-form admin-form" method="post">
+				<input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+				{% for error in errors %}
+				<p class="form-error" role="alert">{{ error }}</p>
+				{% endfor %}
+
+				{% if section.list %}
+				<input type="hidden" name="count" value="{{ rows | length }}" />
+				{% for row in rows %}
+				{% set prefix = 'i' ~ loop.index0 ~ '-' %}
+				<details class="entry" {% if errors %}open{% endif %}>
+					<summary>{{ row.label or 'Entry ' ~ loop.index }}</summary>
+					{% for spec in section.fields %}{{ render_field(prefix, spec, row['values'][spec.name]) }}{% endfor %}
+					<div class="entry-controls">
+						<div class="field">
+							<label for="{{ prefix }}_position">position</label>
+							<input type="text" name="{{ prefix }}_position" id="{{ prefix }}_position" value="{{ row.position }}" inputmode="numeric" />
+						</div>
+						<label class="check check-danger">
+							<input type="checkbox" name="{{ prefix }}_delete" value="1" {% if row.delete %}checked{% endif %} />
+							Delete this {{ section.item_name }}
+						</label>
+					</div>
+				</details>
+				{% endfor %}
+
+				<details class="entry entry-new" {% if errors %}open{% endif %}>
+					<summary><span class="fas fa-plus" aria-hidden="true"></span> Add a {{ section.item_name }}</summary>
+					{% for spec in section.fields %}{{ render_field('new-', spec, new_row['values'][spec.name]) }}{% endfor %}
+					<div class="entry-controls">
+						<div class="field">
+							<label for="new-_position">position</label>
+							<input type="text" name="new-_position" id="new-_position" value="{{ new_row.position }}" inputmode="numeric" />
+						</div>
+					</div>
+				</details>
+				{% else %}
+				{% for spec in section.fields %}{{ render_field('f-', spec, values[spec.name]) }}{% endfor %}
+				{% endif %}
+
+				<button type="submit" class="btn btn-primary">Save</button>
+			</form>
+{% endblock %}

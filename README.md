@@ -73,3 +73,5 @@ Render's disk is wiped on every deploy, so the admin doesn't save to it. Each sa
 | `GITHUB_BRANCH` | Branch to commit to (optional, defaults to `main`) |
 
 Without a token, saves are written to the local disk only, which is what you want when running locally. On Render, saving without a token is refused.
+
+The admin also edits the homepage. Each section (profile and links, experience, projects, skills, certifications, about, education) is a JSON file in `content/`, and has a form in the admin. List sections show every entry on one page, so a round of edits, reordering and deletions is saved as one commit. Before saving, the admin builds the homepage with the new content and refuses the save if that fails.
