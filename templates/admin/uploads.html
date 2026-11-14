@@ -1,0 +1,97 @@
+{% extends "admin/base.html" %}
+{% block title %}Uploads{% endblock %}
+{% block content %}
+			<header class="blog-header">
+				<a href="{{ url_for('admin.dashboard') }}" class="back-link">&larr; Dashboard</a>
+				<h1>Uploads</h1>
+				<p>Images are checked, scaled to fit and stripped of camera and location data before they are saved. The size limit is {{ max_mb }} MB.</p>
+			</header>
+
+			{% if shown %}
+			<section class="admin-section upload-result">
+				<img src="{{ url_for('static', filename='images/' ~ shown.path) }}" alt="" />
+				{% if shown.folder == 'posts' %}
+				<label for="snippet">paste this into a post where the image should appear, then fill in the description and caption</label>
+				<textarea id="snippet" rows="5" readonly>&lt;figure&gt;
+  &lt;img src="/static/images/{{ shown.path }}" alt="{{ (alt or 'DESCRIBE THE IMAGE') | replace('"', '&quot;') }}" loading="lazy" /&gt;
+  &lt;figcaption&gt;CAPTION&lt;/figcaption&gt;
+&lt;/figure&gt;</textarea>
+				{% else %}
+				<label for="snippet">put this in a featured project's "image" box ({{ shown.width }} &times; {{ shown.height }} pixels; the size is filled in for you if you leave it blank)</label>
+				<input type="text" id="snippet" value="images/{{ shown.path }}" readonly />
+				{% endif %}
+			</section>
+			{% endif %}
+
+			<section class="admin-section">
+				<div class="admin-section-heading">
+					<h2>Upload an image</h2>
+				</div>
+				<form class="contact-form admin-form" method="post" enctype="multipart/form-data" action="{{ url_for('admin.upload_image') }}">
+					<input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+					<div class="field">
+						<label for="image-file">image (png, jpeg or webp)</label>
+						<input type="file" name="file" id="image-file" accept="image/png,image/jpeg,image/webp" required />
+					</div>
+					<div class="field-row">
+						<div class="field">
+							<label for="folder">for</label>
+							<select name="folder" id="folder">
+								{% for folder, title in image_folders.items() %}
+								<option value="{{ folder }}">{{ title }}</option>
+								{% endfor %}
+							</select>
+						</div>
+						<div class="field">
+							<label for="name">name (blank = the file's own name)</label>
+							<input type="text" name="name" id="name" maxlength="80" />
+						</div>
+					</div>
+					<div class="field">
+						<label for="alt">description for screen readers (optional, used in the snippet)</label>
+						<input type="text" name="alt" id="alt" maxlength="300" />
+					</div>
+					<label class="check">
+						<input type="checkbox" name="replace" value="1" />
+						Replace an existing image with the same name
+					</label>
+					<button type="submit" class="btn btn-primary">Upload image</button>
+				</form>
+			</section>
+
+			<section class="admin-section">
+				<div class="admin-section-heading">
+					<h2>Replace the CV</h2>
+				</div>
+				<form class="contact-form admin-form" method="post" enctype="multipart/form-data" action="{{ url_for('admin.upload_cv') }}">
+					<input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+					<div class="field">
+						<label for="cv-file">pdf (replaces <a href="/{{ cv_path }}" target="_blank" rel="noopener">the current CV</a>)</label>
+						<input type="file" name="file" id="cv-file" accept="application/pdf" required />
+					</div>
+					<button type="submit" class="btn btn-primary">Replace CV</button>
+				</form>
+			</section>
+
+			{% for title, files in folders %}
+			<section class="admin-section">
+				<div class="admin-section-heading">
+					<h2>{{ title }} images</h2>
+				</div>
+				{% if files %}
+				<ul class="upload-grid">
+					{% for path in files %}
+					<li>
+						<a href="{{ url_for('admin.uploads', show=path) }}">
+							<img src="{{ url_for('static', filename='images/' ~ path) }}" alt="" loading="lazy" />
+							<span>{{ path.split('/')[1] }}</span>
+						</a>
+					</li>
+					{% endfor %}
+				</ul>
+				{% else %}
+				<p class="no-posts">No images yet.</p>
+				{% endif %}
+			</section>
+			{% endfor %}
+{% endblock %}

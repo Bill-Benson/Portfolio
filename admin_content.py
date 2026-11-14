@@ -10,6 +10,7 @@ import re
 import json
 
 from flask import render_template, request, redirect, url_for, abort, flash
+from PIL import Image
 
 import content
 import storage
@@ -48,9 +49,14 @@ def field(name, label, kind='text', required=False, help=None, check=None):
 def finish_project(item, problems):
     """A featured card can't be drawn without its image; a standard one needs an icon."""
     if item.get('featured'):
-        for name in ('image', 'image_alt', 'image_width', 'image_height'):
+        for name in ('image', 'image_alt'):
             if item.get(name) in EMPTY:
                 problems.append(f'{name.replace("_", " ")} is required for a featured project')
+        # The page reserves space for the image from its size; read it from
+        # the file when it isn't given.
+        if item.get('image') and not (item.get('image_width') and item.get('image_height')):
+            with Image.open(os.path.join(content.ROOT, 'static', item['image'])) as image:
+                item['image_width'], item['image_height'] = image.size
     else:
         item.setdefault('icon', 'fas fa-code')
 
@@ -95,10 +101,10 @@ SECTIONS = {
             field('featured', 'Featured: large card with an image, shown first', 'bool'),
             field('title', 'title', required=True),
             field('label', 'label above the title', help='featured only, e.g. Featured · WAF Tuning'),
-            field('image', 'image', check=check_image, help='featured only, a path inside static, e.g. images/projects/chart.png'),
+            field('image', 'image', check=check_image, help='featured only; upload it first, then paste its path, e.g. images/projects/chart.png'),
             field('image_alt', 'image description for screen readers', help='featured only'),
-            field('image_width', 'image width in pixels', 'int', help='featured only'),
-            field('image_height', 'image height in pixels', 'int', help='featured only'),
+            field('image_width', 'image width in pixels', 'int', help='featured only; blank = read from the image'),
+            field('image_height', 'image height in pixels', 'int', help='featured only; blank = read from the image'),
             field('image_link_label', 'image link label', help='featured only, e.g. View full-size chart'),
             field('metric', 'headline result', help='featured only'),
             field('icon', 'icon', check=check_icon, help='standard cards only, e.g. fas fa-bug'),
@@ -231,6 +237,9 @@ def parse_fields(section, prefix, base):
             item[name] = value
     if not problems and section.get('finish'):
         section['finish'](item, problems)
+    # Keep keys in field order however they were filled in, unknown ones last.
+    names = [spec['name'] for spec in section['fields']]
+    item = {name: item[name] for name in names + [key for key in item if key not in names] if name in item}
     return item, raw, problems
 
 

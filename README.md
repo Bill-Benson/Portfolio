@@ -75,3 +75,5 @@ Render's disk is wiped on every deploy, so the admin doesn't save to it. Each sa
 Without a token, saves are written to the local disk only, which is what you want when running locally. On Render, saving without a token is refused.
 
 The admin also edits the homepage. Each section (profile and links, experience, projects, skills, certifications, about, education) is a JSON file in `content/`, and has a form in the admin. List sections show every entry on one page, so a round of edits, reordering and deletions is saved as one commit. Before saving, the admin builds the homepage with the new content and refuses the save if that fails.
+
+Images and the CV are uploaded from the admin too. An uploaded image must be a real PNG, JPEG or WebP (the file is decoded, not trusted by its name), is scaled down if it is very large, and is re-encoded from its pixels, which removes EXIF data such as camera details and GPS position. The CV upload accepts a PDF and replaces `static/assets/Bill_Benson_CV.pdf`.

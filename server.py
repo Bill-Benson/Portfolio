@@ -12,6 +12,7 @@ from markupsafe import Markup, escape
 from extensions import csrf, limiter
 from admin import bp as admin_bp, is_admin
 import admin_content  # adds the homepage editor routes to the admin blueprint
+import admin_uploads  # and the upload routes
 from content import CONTENT_SECTIONS, SLUG_RE, load_content, load_posts, parse_post, post_path
 
 load_dotenv()
@@ -26,6 +27,8 @@ app.config.update(
     SESSION_COOKIE_SAMESITE='Lax',
     # Idle timeout for the admin session.
     PERMANENT_SESSION_LIFETIME=timedelta(minutes=30),
+    # Hard cap on request size; uploads apply their own lower limit.
+    MAX_CONTENT_LENGTH=8 * 1024 * 1024,
 )
 
 csrf.init_app(app)

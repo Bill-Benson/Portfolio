@@ -18,6 +18,7 @@ import content
 API_URL = 'https://api.github.com'
 # The only places the admin may write to, relative to the repo root.
 WRITABLE_PREFIXES = ('posts/', 'content/', 'static/images/')
+WRITABLE_FILES = ('static/assets/Bill_Benson_CV.pdf',)
 
 
 class StorageError(Exception):
@@ -33,7 +34,7 @@ def _branch():
 
 
 def _check_path(path):
-    if os.path.normpath(path).replace(os.sep, '/') != path or not path.startswith(WRITABLE_PREFIXES):
+    if os.path.normpath(path).replace(os.sep, '/') != path or not (path.startswith(WRITABLE_PREFIXES) or path in WRITABLE_FILES):
         raise StorageError(f'Refusing to write outside the content folders: {path}')
 
 

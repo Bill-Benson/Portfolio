@@ -5,3 +5,4 @@ python-dotenv
 gunicorn
 markdown2
 pyotp
+Pillow
