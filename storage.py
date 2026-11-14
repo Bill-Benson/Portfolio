@@ -43,6 +43,15 @@ def _require_durable_storage():
         raise StorageError('GitHub saving is not set up: add GITHUB_TOKEN and GITHUB_REPO on Render.')
 
 
+def _github_reason(error):
+    """GitHub's own explanation from an error response, as ': reason', or '.'."""
+    try:
+        message = json.load(error).get('message')
+    except Exception:
+        message = None
+    return f': {message}' if message else '.'
+
+
 def _github(method, path, payload=None):
     url = f"{API_URL}/repos/{os.environ['GITHUB_REPO']}/contents/{urllib.parse.quote(path)}"
     if method == 'GET':
@@ -64,7 +73,7 @@ def _github(method, path, payload=None):
     except urllib.error.HTTPError as error:
         if method == 'GET' and error.code == 404:
             return None
-        raise StorageError(f'GitHub rejected the change (HTTP {error.code}).') from error
+        raise StorageError(f'GitHub rejected the change (HTTP {error.code}){_github_reason(error)}') from error
     except (urllib.error.URLError, TimeoutError) as error:
         raise StorageError('Could not reach GitHub.') from error
 
