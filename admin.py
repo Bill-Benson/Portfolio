@@ -48,7 +48,9 @@ def harden_response(response):
     response.headers['Cache-Control'] = 'no-store'
     response.headers['X-Frame-Options'] = 'DENY'
     response.headers['X-Content-Type-Options'] = 'nosniff'
-    response.headers['Referrer-Policy'] = 'no-referrer'
+    # Not 'no-referrer': over https Flask-WTF rejects a form post that has no
+    # Referer header, and the admin's own forms need to pass that check.
+    response.headers['Referrer-Policy'] = 'same-origin'
     return response
 
 
